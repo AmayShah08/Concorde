@@ -10,9 +10,9 @@ import {
 export const NavBar = (): JSX.Element => {
   // Navigation menu items data
   const navItems = [
-    { label: "Home", href: "#" },
-    { label: "Car Rentals", href: "#" },
-    { label: "Holiday Packages", href: "#" },
+    { label: "Safaris", href: "#" },
+    { label: "Travel", href: "#" },
+    { label: "Car Hire", href: "#" },
     { label: "About", href: "#" },
     { label: "Contact", href: "#" },
   ];
@@ -22,8 +22,14 @@ export const NavBar = (): JSX.Element => {
       <div className="container mx-auto h-full px-4">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <div className="h-8">
-            <h1 className="font-normal text-2xl text-black">Concorde</h1>
+          <div className="h-20">
+            <a href="#">
+              <img
+                className="h-full"
+                alt="Logo"
+                src="/Final-Logo.png"
+              />
+            </a>
           </div>
 
           {/* Navigation */}

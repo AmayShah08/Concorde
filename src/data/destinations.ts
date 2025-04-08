@@ -21,7 +21,7 @@ export const destinations: Destination[] = [
       {
         title: "Big Five Safaris in Kruger & Private Game Reserves",
         description: "Experience close encounters with the Big Five in Kruger National Park, one of Africa’s top wildlife destinations. For a more exclusive safari, South Africa’s private reserves like Sabi Sands offer luxury lodges, expert-guided game drives, and unforgettable bush dinners under the stars.",
-        image:["/Exp/sa_kruger_1.jpg","/Exp/sa_kruger_2.jpg", "/Exp/sa_kruger_3.jpg"]
+        image:["/Exp/sa_kruger_1.jpg","/Exp/sa_kruger_2.jpg", "/Exp/sa_kruger_3.jpg","/Exp/sa_kruger_4.jpg"]
       },
       {
         title: "Cape Town and Table Mountain",
@@ -36,22 +36,22 @@ export const destinations: Destination[] = [
       {
         title: "The Garden Route – Coastal Beauty & Adventure",
         description: "The Garden Route, stretching from Cape Town to Port Elizabeth, is famed for its dramatic cliffs, lush forests, and charming seaside towns. Explore Knysna’s lagoons, bungee jump from Bloukrans Bridge, or go whale watching in Hermanus. With hiking trails, adventure sports, and luxury lodges, it’s a paradise for nature lovers and thrill-seekers.",
-        image:[]
+        image:["/Exp/sa_gr_1.jpg","/Exp/sa_gr_2.jpg", "/Exp/sa_gr_3.jpg", "/Exp/sa_gr_4.jpg"]
       },
       {
         title: "Wildlife & Zulu Culture in KwaZulu-Natal",
         description: "Beyond its golden beaches, KwaZulu-Natal boasts incredible game reserves like Hluhluwe-iMfolozi, where you can see rare black and white rhinos. The region is also rich in Zulu heritage, offering cultural tours where visitors can learn about traditional customs, warrior history, and vibrant local traditions.",
-        image:[]
+        image:["/Exp/sa_zulu_1.jpg","/Exp/sa_zulu_2.jpg", "/Exp/sa_zulu_3.jpg"]
       },
       {
         title: "Luxury & Safari on the Eastern Cape",
         description: "Beyond its golden beaches, KwaZulu-Natal boasts incredible game reserves like Hluhluwe-iMfolozi, where you can see rare black and white rhinos. The region is also rich in Zulu heritage, offering cultural tours where visitors can learn about traditional customs, warrior history, and vibrant local traditions.",
-        image:[]
+        image:["/Exp/sa_east_1.jpg","/Exp/sa_east_2.jpg", "/Exp/sa_east_3.jpg"]
       },
       {
         title: "Shark Cage Diving in Gansbaai",
         description: "Experience the thrill of coming face-to-face with great white sharks in their natural habitat. An adrenaline-pumping adventure for thrill-seekers and marine enthusiasts.",
-        image:[]
+        image:["/Exp/sa_shark_1.jpg","/Exp/sa_shark_2.jpg", "/Exp/sa_shark_3.jpg"]
       },
     ],
     time_to_visits: [
@@ -69,27 +69,63 @@ export const destinations: Destination[] = [
         },
       ],
   },
-  // {
-  //   id: 2,
-  //   name: "Botswana",
-  //   image: "/Destination/Botswana.jpg",
-  //   overview: "Botswana is one of Africa’s most exclusive and pristine safari destinations, known for its vast wilderness, abundant wildlife, and high-end lodges offering unparalleled luxury. From the lush waterways of the Okavango Delta to the vast salt flats of the Makgadikgadi Pans, Botswana provides a diverse and breathtaking landscape for travellers seeking adventure, serenity, and authentic safari experiences. With a strong focus on conservation and low-impact tourism, Botswana offers private, intimate safaris where you can witness incredible wildlife without the crowds. Whether gliding through the Delta in a mokoro canoe, spotting massive elephant herds in Chobe, or experiencing the stark beauty of the Kalahari, Botswana is a haven for nature lovers and luxury travellers alike.",
-  //   top_experiences: ["Tanah Lot", "Uluwatu Temple", "Tegallalang Rice Terraces"],
-  //   time_to_visits: [
-  //     {
-  //       months: "May - September:",
-  //       reason: "The best time for safaris, as wildlife gathers around water sources and the vegetation is less dense, making spotting animals easier.",
-  //     },
-  //     {
-  //       months: "November - March:",
-  //       reason: "Ideal for beach holidays, wine country tours, and exploring Cape Town in its warmest months.",
-  //     },
-  //     {
-  //       months: "July - November:",
-  //       reason: "Best for whale watching along the coast, especially in Hermanus.",
-  //     },
-  //   ],
-  // },
+  {
+    id: 2,
+    name: "Botswana",
+    image: "/Destination/Botswana.jpg",
+    overview: "Botswana is one of Africa’s most exclusive and pristine safari destinations, known for its vast wilderness, abundant wildlife, and high-end lodges offering unparalleled luxury. From the lush waterways of the Okavango Delta to the vast salt flats of the Makgadikgadi Pans, Botswana provides a diverse and breathtaking landscape for travellers seeking adventure, serenity, and authentic safari experiences. With a strong focus on conservation and low-impact tourism, Botswana offers private, intimate safaris where you can witness incredible wildlife without the crowds. Whether gliding through the Delta in a mokoro canoe, spotting massive elephant herds in Chobe, or experiencing the stark beauty of the Kalahari, Botswana is a haven for nature lovers and luxury travellers alike.",
+    top_experiences: [
+      {
+        title: "Okavango Delta- The Jewel of Botswana",
+        description: "The Okavango Delta, a UNESCO-listed wonder, is a maze of waterways teeming with wildlife. Explore by mokoro (traditional canoe), boat safari, or guided walks to spot hippos, elephants, and rare birds. Stay in exclusive lodges that blend seamlessly into this lush paradise.",
+        image:["/Exp/sa_kruger_1.jpg","/Exp/sa_kruger_2.jpg", "/Exp/sa_kruger_3.jpg","/Exp/sa_kruger_4.jpg"]
+      },
+      {
+        title: "Cape Town and Table Mountain",
+        description: "Cape Town is a vibrant mix of culture, stunning landscapes, and world-class dining. Ride a cable car up Table Mountain, visit historic Robben Island, or stroll through the colorful Bo-Kaap. With lively waterfronts, pristine beaches, and nearby nature reserves, it’s the perfect mix of adventure and relaxation.",
+        image:["/Exp/sa_ct_1.jpg","/Exp/sa_ct_2.jpg", "/Exp/sa_ct_3.jpg"]
+      },
+      {
+        title: "Cape Winelands- A Taste of South Africa's Finest Wines",
+        description: "Savor world-class wines in the scenic valleys of Stellenbosch, Franschhoek, and Paarl. The Cape Winelands offer award-winning vineyards, gourmet dining, and charming estates. Enjoy guided tastings, vineyard picnics, and even hot air balloon rides over the breathtaking countryside.",
+        image:["/Exp/sa_wine_1.jpg","/Exp/sa_wine_2.jpg", "/Exp/sa_wine_3.jpg"]
+      },
+      {
+        title: "The Garden Route – Coastal Beauty & Adventure",
+        description: "The Garden Route, stretching from Cape Town to Port Elizabeth, is famed for its dramatic cliffs, lush forests, and charming seaside towns. Explore Knysna’s lagoons, bungee jump from Bloukrans Bridge, or go whale watching in Hermanus. With hiking trails, adventure sports, and luxury lodges, it’s a paradise for nature lovers and thrill-seekers.",
+        image:["/Exp/sa_gr_1.jpg","/Exp/sa_gr_2.jpg", "/Exp/sa_gr_3.jpg", "/Exp/sa_gr_4.jpg"]
+      },
+      {
+        title: "Wildlife & Zulu Culture in KwaZulu-Natal",
+        description: "Beyond its golden beaches, KwaZulu-Natal boasts incredible game reserves like Hluhluwe-iMfolozi, where you can see rare black and white rhinos. The region is also rich in Zulu heritage, offering cultural tours where visitors can learn about traditional customs, warrior history, and vibrant local traditions.",
+        image:["/Exp/sa_zulu_1.jpg","/Exp/sa_zulu_2.jpg", "/Exp/sa_zulu_3.jpg"]
+      },
+      {   
+        title: "Luxury & Safari on the Eastern Cape",
+        description: "Beyond its golden beaches, KwaZulu-Natal boasts incredible game reserves like Hluhluwe-iMfolozi, where you can see rare black and white rhinos. The region is also rich in Zulu heritage, offering cultural tours where visitors can learn about traditional customs, warrior history, and vibrant local traditions.",
+        image:["/Exp/sa_east_1.jpg","/Exp/sa_east_2.jpg", "/Exp/sa_east_3.jpg"]
+      },
+      {
+        title: "Shark Cage Diving in Gansbaai",
+        description: "Experience the thrill of coming face-to-face with great white sharks in their natural habitat. An adrenaline-pumping adventure for thrill-seekers and marine enthusiasts.",
+        image:["/Exp/sa_shark_1.jpg","/Exp/sa_shark_2.jpg", "/Exp/sa_shark_3.jpg"]
+      },
+    ],
+    time_to_visits: [
+      {
+        months: "May - September:",
+        reason: "The best time for safaris, as wildlife gathers around water sources and the vegetation is less dense, making spotting animals easier.",
+      },
+      {
+        months: "November - March:",
+        reason: "Ideal for beach holidays, wine country tours, and exploring Cape Town in its warmest months.",
+      },
+      {
+        months: "July - November:",
+        reason: "Best for whale watching along the coast, especially in Hermanus.",
+      },
+    ],
+  },
   // {
   //   id: 3,
   //   name: "Dubai, UAE",

@@ -35,7 +35,7 @@ export const DestinationDetails = (): JSX.Element => {
             </h1>
           </div>
   
-          <p className="text-lg text-gray-700 mb-6">{destination.overview}</p>
+          <p className="text-lg text-gray-700 mb-6 text-justify">{destination.overview}</p>
   
           <h2 className="text-2xl font-semibold mb-4">Top Experiences</h2>
           <div className="space-y-4">
@@ -54,13 +54,13 @@ export const DestinationDetails = (): JSX.Element => {
                 {expandedIndex === index && (
                 <div className="p-4 bg-white">
                     <p className="text-gray-700 mb-4">{experience.description}</p>
-                    <div className="flex flex-wrap gap-24 justify-between">
+                    <div className="flex flex-wrap gap-4 justify-between">
                     {experience.image.map((img, imgIndex) => (
                         <img
                         key={imgIndex}
                         src={img}
                         alt={`${experience.title} - ${imgIndex + 1}`}
-                        className="w-1/4 h-48 object-cover rounded-md"
+                        className="w-1/45 h-48 object-cover rounded-md"
                         />
                     ))}
                     </div>
