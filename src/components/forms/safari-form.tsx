@@ -1,15 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const SafariForm = (): JSX.Element => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    country: "",
+    adults: "",
+    children: "",
+    departureDate: "",
+    arrivalDate: "",
+    flexibleMonths: "",
+    safariType: "",
+    roomingConfig: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form Data Submitted:", formData);
+    alert("Your safari inquiry has been submitted!");
+  };
+
   return (
-    <form className="space-y-4">
-      <h3 className="text-xl font-semibold">Safaris</h3>
+    <form className="space-y-4" onSubmit={handleSubmit}>
+      <h3 className="text-xl font-semibold">Safari Inquiry</h3>
       <div>
         <label className="block text-sm font-medium text-gray-700">
           Full Name
         </label>
         <input
           type="text"
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleChange}
           className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           placeholder="Enter your full name"
         />
@@ -20,6 +52,9 @@ export const SafariForm = (): JSX.Element => {
         </label>
         <input
           type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
           className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           placeholder="Enter your email"
         />
@@ -30,6 +65,9 @@ export const SafariForm = (): JSX.Element => {
         </label>
         <input
           type="text"
+          name="country"
+          value={formData.country}
+          onChange={handleChange}
           className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           placeholder="Enter your country of origin"
         />
@@ -40,18 +78,126 @@ export const SafariForm = (): JSX.Element => {
         </label>
         <input
           type="number"
+          name="adults"
+          value={formData.adults}
+          onChange={handleChange}
           className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           placeholder="Enter number of adults"
         />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">
-          Message
+          Number of Children
         </label>
-        <textarea
+        <input
+          type="number"
+          name="children"
+          value={formData.children}
+          onChange={handleChange}
           className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-          placeholder="Enter your message"
-        ></textarea>
+          placeholder="Enter number of children"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          Departure Date
+        </label>
+        <input
+          type="date"
+          name="departureDate"
+          value={formData.departureDate}
+          onChange={handleChange}
+          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          Arrival Date
+        </label>
+        <input
+          type="date"
+          name="arrivalDate"
+          value={formData.arrivalDate}
+          onChange={handleChange}
+          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          If dates are flexible, please specify Month(s) of travel
+        </label>
+        <input
+          type="text"
+          name="flexibleMonths"
+          value={formData.flexibleMonths}
+          onChange={handleChange}
+          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Enter flexible travel months"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          Budget
+        </label>
+        <div className="mt-2 space-x-3">
+          <label className="inline-flex items-center space-x-1">
+            <input
+              type="radio"
+              name="safariType"
+              value="Luxury"
+              checked={formData.safariType === "Luxury"}
+              onChange={handleChange}
+              className="text-blue-500 focus:ring-blue-500"
+            />
+            <span className="ml-2 text-gray-700">Luxury</span>
+          </label>
+          <label className="inline-flex items-center space-x-1">
+            <input
+              type="radio"
+              name="safariType"
+              value="Mid-range"
+              checked={formData.safariType === "Mid-range"}
+              onChange={handleChange}
+              className="text-blue-500 focus:ring-blue-500"
+            />
+            <span className="ml-2 text-gray-700">Mid-range</span>
+          </label>
+          <label className="inline-flex items-center space-x-1">
+            <input
+              type="radio"
+              name="safariType"
+              value="Budget-friendly"
+              checked={formData.safariType === "Budget-friendly"}
+              onChange={handleChange}
+              className="text-blue-500 focus:ring-blue-500"
+            />
+            <span className="ml-2 text-gray-700">Budget-friendly</span>
+          </label>
+          <label className="inline-flex items-center space-x-1">
+            <input
+              type="radio"
+              name="safariType"
+              value="No preference"
+              checked={formData.safariType === "No preference"}
+              onChange={handleChange}
+              className="text-blue-500 focus:ring-blue-500"
+            />
+            <span className="ml-2 text-gray-700">No preference</span>
+          </label>
+        </div>
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">
+          Preferred Rooming Configuration
+        </label>
+        <input
+          type="number"
+          name="roomingConfig"
+          value={formData.roomingConfig}
+          onChange={handleChange}
+          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Enter preferred rooming configuration"
+        />
       </div>
       <button
         type="submit"

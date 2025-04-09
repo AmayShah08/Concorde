@@ -6,6 +6,13 @@ import { PopularDestinationsSection } from "./screens/Frame/sections/PopularDest
 import { DestinationDetails } from "./screens/Frame/sections/PopularDestinationsSection/DestinationDetails";
 import { ScrollToTop } from "./components/ScrollToTop";
 
+// Placeholder components for new pages
+const SafarisPage = () => <div>Safaris Page</div>;
+const TravelPage = () => <div>Travel Page</div>;
+const CarHirePage = () => <div>Car Hire Page</div>;
+const AboutPage = () => <div>About Us Page</div>;
+const ContactPage = () => <div>Contact Us Page</div>;
+
 createRoot(document.getElementById("app") as HTMLElement).render(
   <StrictMode>
     <Router>
@@ -19,6 +26,13 @@ createRoot(document.getElementById("app") as HTMLElement).render(
 
         {/* Destination Details Page */}
         <Route path="/destination/:name" element={<DestinationDetails />} />
+
+        {/* New Pages */}
+        <Route path="/safaris" element={<SafarisPage />} />
+        <Route path="/travel" element={<TravelPage />} />
+        <Route path="/carhire" element={<CarHirePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
   </StrictMode>,

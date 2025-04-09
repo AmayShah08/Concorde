@@ -11,4 +11,7 @@ export default defineConfig({
       plugins: [tailwind()],
     },
   },
+  server: {
+    allowedHosts: ['dragon-coherent-sincerely.ngrok-free.app']
+  }
 });
