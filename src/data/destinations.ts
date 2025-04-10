@@ -83,12 +83,12 @@ export const destinations: Destination[] = [
       {
         title: "Cape Town and Table Mountain",
         description: "Cape Town is a vibrant mix of culture, stunning landscapes, and world-class dining. Ride a cable car up Table Mountain, visit historic Robben Island, or stroll through the colorful Bo-Kaap. With lively waterfronts, pristine beaches, and nearby nature reserves, it’s the perfect mix of adventure and relaxation.",
-        image:["/Exp/sa_ct_1.jpg","/Exp/sa_ct_2.jpg", "/Exp/sa_ct_3.jpg"]
+        image:["/Exp/sa_ct_1.jpg","/Exp/sa_ct_2.jpg", "/Exp/sa_ct_3.jpg", "/Exp/sa_ct_4.jpg"]
       },
       {
         title: "Cape Winelands- A Taste of South Africa's Finest Wines",
         description: "Savor world-class wines in the scenic valleys of Stellenbosch, Franschhoek, and Paarl. The Cape Winelands offer award-winning vineyards, gourmet dining, and charming estates. Enjoy guided tastings, vineyard picnics, and even hot air balloon rides over the breathtaking countryside.",
-        image:["/Exp/sa_wine_1.jpg","/Exp/sa_wine_2.jpg", "/Exp/sa_wine_3.jpg"]
+        image:["/Exp/sa_wine_1.jpg","/Exp/sa_wine_2.jpg", "/Exp/sa_wine_3.jpg", "/Exp/sa_wine_4.jpg"]
       },
       {
         title: "The Garden Route – Coastal Beauty & Adventure",
@@ -98,17 +98,17 @@ export const destinations: Destination[] = [
       {
         title: "Wildlife & Zulu Culture in KwaZulu-Natal",
         description: "Beyond its golden beaches, KwaZulu-Natal boasts incredible game reserves like Hluhluwe-iMfolozi, where you can see rare black and white rhinos. The region is also rich in Zulu heritage, offering cultural tours where visitors can learn about traditional customs, warrior history, and vibrant local traditions.",
-        image:["/Exp/sa_zulu_1.jpg","/Exp/sa_zulu_2.jpg", "/Exp/sa_zulu_3.jpg"]
+        image:["/Exp/sa_zulu_1.jpg","/Exp/sa_zulu_2.jpg", "/Exp/sa_zulu_3.jpg", "/Exp/sa_zulu_4.jpg"]
       },
       {   
         title: "Luxury & Safari on the Eastern Cape",
         description: "Beyond its golden beaches, KwaZulu-Natal boasts incredible game reserves like Hluhluwe-iMfolozi, where you can see rare black and white rhinos. The region is also rich in Zulu heritage, offering cultural tours where visitors can learn about traditional customs, warrior history, and vibrant local traditions.",
-        image:["/Exp/sa_east_1.jpg","/Exp/sa_east_2.jpg", "/Exp/sa_east_3.jpg"]
+        image:["/Exp/sa_east_1.jpg","/Exp/sa_east_2.jpg", "/Exp/sa_east_3.jpg", "/Exp/sa_east_4.jpg"]
       },
       {
         title: "Shark Cage Diving in Gansbaai",
         description: "Experience the thrill of coming face-to-face with great white sharks in their natural habitat. An adrenaline-pumping adventure for thrill-seekers and marine enthusiasts.",
-        image:["/Exp/sa_shark_1.jpg","/Exp/sa_shark_2.jpg", "/Exp/sa_shark_3.jpg"]
+        image:["/Exp/sa_shark_1.jpg","/Exp/sa_shark_2.jpg", "/Exp/sa_shark_3.jpg", "/Exp/sa_shark_4.jpg"]
       },
     ],
     time_to_visits: [

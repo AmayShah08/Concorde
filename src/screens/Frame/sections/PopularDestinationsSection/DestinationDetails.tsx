@@ -58,18 +58,20 @@ export const DestinationDetails = (): JSX.Element => {
               {/* Collapsible Content */}
               {expandedIndex === index && (
                 <div className="p-4 bg-white">
-                  <p className="text-gray-700 mb-4">{experience.description}</p>
-                  <div className="flex flex-wrap gap-4 justify-between">
-                    {experience.image.map((img, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        src={img}
-                        alt={`${experience.title} - ${imgIndex + 1}`}
-                        className="w-1/45 h-48 object-cover rounded-md"
-                      />
-                    ))}
-                  </div>
+                <p className="text-gray-700 mb-4">{experience.description}</p>
+                <div
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+                >
+                  {experience.image.map((img, imgIndex) => (
+                    <img
+                      key={imgIndex}
+                      src={img}
+                      alt={`${experience.title} - ${imgIndex + 1}`}
+                      className="w-full h-48 object-cover rounded-md"
+                    />
+                  ))}
                 </div>
+              </div>
               )}
             </div>
           ))}
