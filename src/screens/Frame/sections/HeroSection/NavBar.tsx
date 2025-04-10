@@ -20,7 +20,7 @@ export const NavBar = (): JSX.Element => {
 
   // Navigation menu items data
   const navItems = [
-    { label: "Safaris", href: "/safaris" },
+    { label: "Safaris", href: "/" },
     { label: "Travel", href: "/travel" },
     { label: "Car Hire", href: "/carhire" },
     { label: "About", href: "/about" },

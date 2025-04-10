@@ -28,7 +28,6 @@ createRoot(document.getElementById("app") as HTMLElement).render(
         <Route path="/destination/:name" element={<DestinationDetails />} />
 
         {/* New Pages */}
-        <Route path="/safaris" element={<SafarisPage />} />
         <Route path="/travel" element={<TravelPage />} />
         <Route path="/carhire" element={<CarHirePage />} />
         <Route path="/about" element={<AboutPage />} />

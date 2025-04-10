@@ -92,7 +92,7 @@ export const FooterSection = (): JSX.Element => {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-neutral-700 text-center">
           <p className="font-normal text-base text-neutral-400">
-            © 2025 TravelEase. All rights reserved.
+            © 2025 Concorde. All rights reserved.
           </p>
         </div>
       </div>

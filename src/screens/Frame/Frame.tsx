@@ -23,11 +23,11 @@ export const Frame = (): JSX.Element => {
       </section>
 
       <section className="w-full">
-        <NewsletterSection />
+        <ServicesSection />
       </section>
 
       <section className="w-full">
-        <ServicesSection />
+        <NewsletterSection />
       </section>
 
       <section className="w-full">
