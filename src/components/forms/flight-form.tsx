@@ -35,32 +35,38 @@ export const FlightForm = (): JSX.Element => {
                 onSubmit={handleSubmit}
             >
                 <h3 className="text-xl font-semibold">Flight Inquiry</h3>
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Full Name
-                    </label>
-                    <input
-                        type="text"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Enter your full name"
-                    />
+
+                {/* Name and Email Side by Side */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                            Full Name
+                        </label>
+                        <input
+                            type="text"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleChange}
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Enter your full name"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                            Email Address
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Enter your email"
+                        />
+                    </div>
                 </div>
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Email Address
-                    </label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Enter your email"
-                    />
-                </div>
+
+                {/* Passport Origin */}
                 <div>
                     <label className="block text-sm font-medium text-gray-700">
                         Passport Origin
@@ -74,6 +80,8 @@ export const FlightForm = (): JSX.Element => {
                         placeholder="Enter your passport origin"
                     />
                 </div>
+
+                {/* Number of Adults and Children */}
                 <div>
                     <label className="block text-sm font-medium text-gray-700">
                         Number of Adults
@@ -100,30 +108,36 @@ export const FlightForm = (): JSX.Element => {
                         placeholder="Enter number of children"
                     />
                 </div>
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Departure Date
-                    </label>
-                    <input
-                        type="date"
-                        name="departureDate"
-                        value={formData.departureDate}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    />
+
+                {/* Departure and Arrival Dates Side by Side */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                            Departure Date
+                        </label>
+                        <input
+                            type="date"
+                            name="departureDate"
+                            value={formData.departureDate}
+                            onChange={handleChange}
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                            Arrival Date
+                        </label>
+                        <input
+                            type="date"
+                            name="arrivalDate"
+                            value={formData.arrivalDate}
+                            onChange={handleChange}
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                    </div>
                 </div>
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Arrival Date
-                    </label>
-                    <input
-                        type="date"
-                        name="arrivalDate"
-                        value={formData.arrivalDate}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    />
-                </div>
+
+                {/* Flexible Travel Months */}
                 <div>
                     <label className="block text-sm font-medium text-gray-700">
                         If dates are flexible, please specify Month(s) of travel
@@ -137,6 +151,8 @@ export const FlightForm = (): JSX.Element => {
                         placeholder="Enter flexible travel months"
                     />
                 </div>
+
+                {/* Submit Button */}
                 <button
                     type="submit"
                     className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"

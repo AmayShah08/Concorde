@@ -36,8 +36,21 @@ export const FooterSection = (): JSX.Element => {
           <div className="space-y-4">
             <h3 className="font-normal text-xl text-white">Concorde Safaris Limited</h3>
             <p className="font-normal text-base text-neutral-400">
-              Making your travel dreams come true.
+              At Concorde we work with you to give flight to your African dream.
             </p>
+             {/* KATA & KATO Images */}
+              <div className="flex space-x-4">
+              <img
+                src="/KATA LOGO.png"
+                alt="KATA"
+                className="w-24 h-20 object-cover rounded-md"
+              />
+              <img
+                src="/KATO LOGO.png"
+                alt="KATO"
+                className="w-24 h-20 object-cover rounded-md"
+              />
+            </div>
           </div>
 
           {/* Quick Links */}

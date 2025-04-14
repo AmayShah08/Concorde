@@ -31,32 +31,38 @@ export const CarHireForm = (): JSX.Element => {
         onSubmit={handleSubmit}
       >
         <h3 className="text-xl font-semibold">Car Hire Inquiry</h3>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Full Name
-          </label>
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Enter your full name"
-          />
+
+        {/* Name and Email Side by Side */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter your email"
+            />
+          </div>
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Email Address
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Enter your email"
-          />
-        </div>
+
+        {/* Number of Pax */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Number of Pax
@@ -70,11 +76,13 @@ export const CarHireForm = (): JSX.Element => {
             placeholder="Enter number of passengers"
           />
         </div>
+
+        {/* Preferred Vehicle Class in Two Columns */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Preferred Vehicle Class
           </label>
-          <div className="mt-2 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
             <label className="flex items-center gap-x-2">
               <input
                 type="radio"
@@ -132,11 +140,13 @@ export const CarHireForm = (): JSX.Element => {
             </label>
           </div>
         </div>
+
+        {/* Do You Need a Driver? Side by Side */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Do You Need a Driver?
           </label>
-          <div className="mt-2 space-y-4">
+          <div className="flex items-center gap-4 mt-2">
             <label className="flex items-center gap-x-2">
               <input
                 type="radio"
@@ -161,6 +171,8 @@ export const CarHireForm = (): JSX.Element => {
             </label>
           </div>
         </div>
+
+        {/* Number of Days */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Number of Days
@@ -174,6 +186,8 @@ export const CarHireForm = (): JSX.Element => {
             placeholder="Enter number of days"
           />
         </div>
+
+        {/* Submit Button */}
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
