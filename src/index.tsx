@@ -5,6 +5,7 @@ import { Frame } from "./screens/Frame/Frame";
 import { PopularDestinationsSection } from "./screens/Frame/sections/PopularDestinationsSection/PopularDestinationsSection";
 import { DestinationDetails } from "./screens/Frame/sections/PopularDestinationsSection/DestinationDetails";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { AboutUs } from "./pages/AboutUs";
 
 // Placeholder components for new pages
 const SafarisPage = () => <div>Safaris Page</div>;
@@ -30,7 +31,7 @@ createRoot(document.getElementById("app") as HTMLElement).render(
         {/* New Pages */}
         <Route path="/travel" element={<TravelPage />} />
         <Route path="/carhire" element={<CarHirePage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
