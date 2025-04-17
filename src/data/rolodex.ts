@@ -137,5 +137,10 @@ export const destinations: Destination[] = [
     image: "Hotels/Surana-Buffalo-Springs-Samburu.jpg",
     title: "Surana Buffalo Springs – Samburu",
     description: "Nestled in the heart of Buffalo Springs, Surana offers an exclusive escape where luxury meets the rugged beauty of Samburu’s untamed wilderness.",
+  },  {
+    id: 23,
+    image: "Hotels/Giraffe-Manor.jpg",
+    title: "Giraffe Manor - Kenya",
+    description: "Giraffe Manor in Nairobi offers a one-of-a-kind experience where guests can dine and interact with endangered Rothschild giraffes in a stunning 1930s manor setting. It's one of Kenya’s most iconic boutique stays, blending wildlife conservation with old-world charm.",
   },
 ];

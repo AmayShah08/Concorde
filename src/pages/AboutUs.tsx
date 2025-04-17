@@ -16,41 +16,30 @@ export const AboutUs = (): JSX.Element => {
                         <img
                             src="/Concorde.png"
                             alt="About Us"
-                            className="w-full max-w-[400px] h-auto rounded-lg shadow-md"
+                            className="w-full max-w-[500px] h-auto rounded-lg shadow-md"
                         />
                     </div>
 
                     {/* Content Section */}
                     <h2 className="text-4xl font-bold mb-4 text-center">About Us</h2>
                     <h3 className="text-2xl font-semibold mb-8">
-                        About Concorde Car Hire
+                        About Concorde Car Hire & Safaris
                     </h3>
                     <p className="text-lg text-neutral-700 leading-8 text-justify">
-                        Founded in 1973, Concorde Car Hire draws inspiration from the
-                        legendary supersonic jet, Concorde — a symbol of innovation, speed,
-                        and elegance. While the aircraft itself is now part of history, its
-                        legacy of excellence lives on through our commitment to top-tier,
-                        personalized car hire services in Kenya.
-                    </p>
-                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify">
-                        For over 30 years, we’ve remained intentionally small and
-                        interactive, choosing quality over scale. Our clients aren’t just
+                        Founded in 1973, Concorde Car Hire was inspired by the iconic supersonic jet, Concorde —
+                        a timeless symbol of innovation, speed, and elegance. While the aircraft now belongs to
+                        history, its spirit of excellence lives on in our commitment to delivering top-tier,
+                        personalized car hire services across Kenya. For over 30 years, we’ve chosen to remain
+                        intentionally small and interactive, prioritizing quality over scale. Our clients aren’t just
                         served — they’re guided, supported, and welcomed like family.
                     </p>
-                    <h3 className="text-2xl font-semibold mb-4 mt-8">
-                        The evolution into Concorde Safaris
-                    </h3>
-                    <p className="text-lg text-neutral-700 leading-8 text-justify">
-                        In the mid-90s, in response to increasing demand from our car hire clients, 
-                        Concorde Safaris was born. Two decades on, we’ve grown into a trusted 
-                        Destination Management Company, renowned for tailor-made African experiences 
-                        that speak to the heart of each traveler.
-                    </p>
                     <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify">
-                        We work with a diverse range of clients — from solo adventurers and families to 
-                        university groups, NGO teams, and diplomatic staff. Whether you're after a classic 
-                        Big Five safari or a special-interest cultural expedition, we craft experiences as 
-                        unique as you are.
+                        In the mid-90s, growing demand from our car hire clientele sparked the natural evolution
+                        into Concorde Safaris. Two decades later, we’ve become a trusted Destination Management
+                        Company, known for crafting tailor-made African experiences that reflect each traveler’s
+                        unique interests and dreams. From solo adventurers and families to university groups, NGO
+                        teams, and diplomatic staff, we curate everything from classic Big Five safaris to immersive
+                        cultural journeys — always with a personal touch.
                     </p>
                     <h3 className="text-2xl font-semibold mb-4 mt-8">
                         Where We Take You
@@ -70,7 +59,7 @@ export const AboutUs = (): JSX.Element => {
                     <h3 className="text-2xl font-semibold mb-4 mt-8">
                         Why Choose Concorde?
                     </h3>
-                    <ul className="list-none list-inside mt-4 text-lg text-neutral-700 leading-8">
+                    <ul className="list-none list-inside mt-4 text-lg text-neutral-700 leading-8 text-justify">
                         <li className="mb-2">
                         🧭 <strong>Personalised Service:</strong> We’re known for our warm, interactive approach. Our 
                         clients feel guided, supported, and truly cared for — especially in unfamiliar environments.
