@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { destinations } from "../../../../data/destinations";
 import { FooterSection } from "../FooterSection/FooterSection";
 import { NavBar } from "../HeroSection/NavBar";
 import { SafariForm } from "../../../../components/forms/safari-form";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+
+const FitBounds = ({ bounds }: { bounds: [[number, number], [number, number]] }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (bounds) {
+      map.fitBounds(bounds);
+    }
+  }, [bounds, map]);
+
+  return null;
+};
 
 export const DestinationDetails = (): JSX.Element => {
   const { name } = useParams<{ name: string }>();
@@ -40,7 +53,37 @@ export const DestinationDetails = (): JSX.Element => {
           </h1>
         </div>
 
-        <p className="text-lg text-gray-700 mb-6 text-justify">{destination.overview}</p>
+        {/* Map and Overview Section */}
+        <div className="flex flex-col lg:flex-row gap-6 mb-8">
+          {/* Map Section */}
+          <div className="w-full lg:w-1/2 h-96">
+            <MapContainer
+              className="h-full w-full rounded-lg shadow-md"
+              center={[destination.latitude, destination.longitude]} // Fallback center
+              zoom={6} // Fallback zoom
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              />
+              <FitBounds
+                bounds={[
+                  [destination.bounds.southWest[0], destination.bounds.southWest[1]],
+                  [destination.bounds.northEast[0], destination.bounds.northEast[1]],
+                ]}
+              />
+              <Marker position={[destination.latitude, destination.longitude]}>
+                <Popup>{destination.name}</Popup>
+              </Marker>
+            </MapContainer>
+          </div>
+
+          {/* Overview Section */}
+          <div className="w-full lg:w-1/2">
+            <p className="text-lg text-gray-700 text-justify">{destination.overview}</p>
+          </div>
+        </div>
 
         <h2 className="text-2xl font-semibold mb-4">Top Experiences</h2>
         <div className="space-y-4">
@@ -58,20 +101,18 @@ export const DestinationDetails = (): JSX.Element => {
               {/* Collapsible Content */}
               {expandedIndex === index && (
                 <div className="p-4 bg-white">
-                <p className="text-gray-700 mb-4">{experience.description}</p>
-                <div
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-                >
-                  {experience.image.map((img, imgIndex) => (
-                    <img
-                      key={imgIndex}
-                      src={img}
-                      alt={`${experience.title} - ${imgIndex + 1}`}
-                      className="w-full h-48 object-cover rounded-md"
-                    />
-                  ))}
+                  <p className="text-gray-700 mb-4">{experience.description}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {experience.image.map((img, imgIndex) => (
+                      <img
+                        key={imgIndex}
+                        src={img}
+                        alt={`${experience.title} - ${imgIndex + 1}`}
+                        className="w-full h-48 object-cover rounded-md"
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
               )}
             </div>
           ))}

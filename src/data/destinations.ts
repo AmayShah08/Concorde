@@ -4,6 +4,12 @@ export interface Destination {
   image: string;
   category: string;
   overview: string;
+  latitude: number;
+  longitude: number;
+  bounds: {
+    southWest: number[];
+    northEast: number[];
+  }
   top_experiences: {
     title: string;
     description: string;
@@ -18,7 +24,13 @@ export const destinations: Destination[] = [
     name: "Kenya",
     image: "/Destination/Kenya.jpg",
     category: "Eastern Africa",
-    overview: "Kenya is a land of diverse landscapes, rich wildlife, and vibrant cultures, making it oneof Africa’s most sought-after destinations. From the rolling savannahs of the Maasai Mara, where the Great Migration unfolds, to the pristine beaches of Diani and the rugged terrains of Samburu, Kenya offers something for every traveller. Whether you’re looking for luxury safaris, adrenaline-packed adventures, or cultural immersions with the Maasai and Samburu tribes, Kenya seamlessly blends nature, adventure, and heritage. With world-class safari lodges, breathtaking scenery, and unforgettable wildlife encounters, this East African gem guarantees an experience of a lifetime.",
+    overview: "Kenya is a land of diverse landscapes, rich wildlife, and vibrant cultures, making it one of Africa’s most sought-after destinations. From the rolling savannahs of the Maasai Mara, where the Great Migration unfolds, to the pristine beaches of Diani and the rugged terrains of Samburu, Kenya offers something for every traveller. Whether you’re looking for luxury safaris, adrenaline-packed adventures, or cultural immersions with the Maasai and Samburu tribes, Kenya seamlessly blends nature, adventure, and heritage. With world-class safari lodges, breathtaking scenery, and unforgettable wildlife encounters, this East African gem guarantees an experience of a lifetime.",
+    latitude: -0.023559,
+    longitude: 37.906193,
+    bounds: {
+      southWest: [-4.899520, 33.909821],
+      northEast: [4.620780, 41.899078],
+  },
     top_experiences: [
     {
       title: "The Great Migration in Maasai Mara",
@@ -64,6 +76,12 @@ export const destinations: Destination[] = [
     image: "/Destination/Tanzania.jpg",
     category: "Eastern Africa",
     overview: "Tanzania is a dream destination for safari lovers, adventure seekers, and beachgoers alike. Home to some of Africa’s most renowned national parks and game reserves, it offers unparalleled wildlife encounters, breathtaking landscapes, and cultural richness. Whether you're witnessing the dramatic Great Migration in the Serengeti, trekking the legendary Mount Kilimanjaro, or unwinding on the pristine shores of Zanzibar, Tanzania provides an unforgettable journey where adventure seamlessly meets luxury. From vibrant Maasai villages to secluded island retreats, this East African gem promises experiences that cater to both thrill-seekers and those looking to indulge in nature’s serenity.",
+    latitude: -6.270353,
+    longitude: 34.823454,
+    bounds: {
+      southWest: [-11.011916, 29.000000],
+      northEast: [-1.001311, 40.185142],
+    },
     top_experiences: [
       {
         title: "Serengeti National Park",
@@ -108,6 +126,12 @@ export const destinations: Destination[] = [
     image: "/Destination/Rwanda.jpg",
     category: "Eastern Africa",
     overview: "Rwanda is a breathtaking destination known for its rolling green hills, pristine lakes, and remarkable wildlife encounters. As one of Africa’s safest and cleanest countries, it offers a seamless blend of adventure and luxury. The country’s biggest highlight is its intimate gorilla trekking experiences, but beyond that, Rwanda boasts diverse national parks, vibrant cultural heritage, and stunning landscapes waiting to be explored.",
+    latitude: -1.9403,
+    longitude: 29.8739,
+    bounds: {
+      southWest: [-2.812398, 28.740200],
+      northEast: [-0.981510, 30.929226],
+    },
     top_experiences: [
       {
         title: "Volcanoes National Park – Gorilla Trekking in the Mist",
@@ -152,6 +176,12 @@ export const destinations: Destination[] = [
     image: "/Destination/Uganda.jpg",
     category: "Eastern Africa",
     overview: "Uganda is a hidden gem for safari lovers, offering lush landscapes, diverse wildlife, and thrilling adventure experiences. From trekking with mountain gorillas in misty forests to cruising along the Nile in search of hippos and crocodiles, Uganda combines breathtaking nature with rich cultural heritage. With its mix of savannah, lakes, and mountains, Uganda offers an off-the-beaten-path safari experience that is both intimate and unforgettable.",
+    latitude: 1.661020,
+    longitude: 32.856375,
+    bounds: {
+      southWest: [-1.470426, 29.433514],
+      northEast: [4.440763, 34.928363],
+    },
     top_experiences: [
       {
         title: "Bwindi Impenetrable Forest – Gorilla Trekking Paradise",
@@ -201,6 +231,12 @@ export const destinations: Destination[] = [
     image: "/Destination/SouthAfrica.jpg",
     category: "Southern Africa",
     overview: "South Africa is a country of breathtaking contrasts, offering everything from world-class safaris to cosmopolitan cities, stunning coastlines, and thrilling adventure experiences. Whether you’re spotting the Big Five in Kruger National Park, sipping fine wines in the Cape Winelands, or taking in the iconic views of Table Mountain, South Africa seamlessly blends nature, luxury, and culture. Its diverse landscapes range from dramatic cliffs along the Garden Route to the rolling hills of Zululand, ensuring that every traveller finds something extraordinary. With rich history, vibrant cities, and some of the most luxurious lodges and resorts in Africa, South Africa is a must-visit destination for both adventure seekers and leisure travellers.",
+    latitude: -28.222089,
+    longitude: 26.190889,
+    bounds: {
+      southWest: [-34.859861, 16.372993],
+      northEast: [-21.832126, 33.743375],
+    },
     top_experiences: [
       {
         title: "Big Five Safaris in Kruger & Private Game Reserves",
@@ -259,6 +295,12 @@ export const destinations: Destination[] = [
     image: "/Destination/Botswana.jpg",
     category: "Southern Africa",
     overview: "Botswana is one of Africa’s most exclusive and pristine safari destinations, known for its vast wilderness, abundant wildlife, and high-end lodges offering unparalleled luxury. From the lush waterways of the Okavango Delta to the vast salt flats of the Makgadikgadi Pans, Botswana provides a diverse and breathtaking landscape for travellers seeking adventure, serenity, and authentic safari experiences. With a strong focus on conservation and low-impact tourism, Botswana offers private, intimate safaris where you can witness incredible wildlife without the crowds. Whether gliding through the Delta in a mokoro canoe, spotting massive elephant herds in Chobe, or experiencing the stark beauty of the Kalahari, Botswana is a haven for nature lovers and luxury travellers alike.",
+    latitude: -21.860968,
+    longitude: 24.079352,
+    bounds: {
+      southWest: [-26.979784, 19.915432],
+      northEast: [-17.176478, 29.020123],
+    },
     top_experiences: [
       {
         title: "Okavango Delta- The Jewel of Botswana",
@@ -303,6 +345,12 @@ export const destinations: Destination[] = [
     image: "/Destination/Victoria.jpg",
     category: "Southern Africa",
     overview: "Victoria Falls, one of the Seven Natural Wonders of the World, is a breathtaking spectacle on the border of Zambia and Zimbabwe. Known locally as Mosi-oa Tunya (The Smoke That Thunders), the falls are the largest sheet of falling water on Earth. Beyond the mesmerizing cascades, Victoria Falls is an adventure hub, offering thrilling activities, rich wildlife, and stunning landscapes for travelers seeking both relaxation and adrenaline-pumping experiences.",
+    latitude: -17.924222,
+    longitude: 25.856485,
+    bounds: {
+      southWest: [-18.000000, 25.700000],
+      northEast: [-17.800000, 26.000000],
+    },
     top_experiences: [
       {
         title: "Victoria Falls – A Natural Marvel",
@@ -352,6 +400,12 @@ export const destinations: Destination[] = [
     image: "/Destination/Namibia.jpg",
     category: "Southern Africa",
     overview: "Namibia is a land of stark beauty and surreal landscapes. Home to the world's highest dunes, ancient tribal cultures, and vast wilderness, it is a haven for travellers seeking both solitude and excitement. Its otherworldly scenery ranges from the red sands of Sossusvlei to the desolate Skeleton Coast. The dry season from May to October is best for exploration and wildlife viewing.",
+    latitude: -22.95764,
+    longitude: 18.49041,
+    bounds: {
+      southWest: [-29.000000, 11.000000],
+      northEast: [-17.000000, 25.000000],
+    },
     top_experiences: [
       {
         title: "Sossusvlei & Deadvlei",
@@ -401,6 +455,12 @@ export const destinations: Destination[] = [
     image: "/Destination/Mauritius.jpg",
     category: "Tropical Islands",
     overview: "Mauritius is a paradise island known for its stunning beaches, turquoise waters, and lush landscapes. This tropical gem offers more than just sun and sand—it's a blend of vibrant culture, rich history, and thrilling adventures. From exploring the island’s volcanic peaks and lush forests to indulging in luxury resorts and world-class diving, Mauritius is the perfect destination for honeymooners, adventure seekers, and luxury travelers alike.",
+    latitude: -20.348404,
+    longitude: 57.552152,
+    bounds: {
+      southWest: [-20.600000, 57.200000],
+      northEast: [-20.200000, 57.800000],
+    },
     top_experiences: [
       {
         title: "Grand Baie - Mauritius' Vibrant Coastal Hub",
@@ -455,6 +515,12 @@ export const destinations: Destination[] = [
     image: "/Destination/Seychelles.jpg",
     category: "Tropical Islands",
     overview: "Seychelles is a stunning archipelago of 115 islands in the Indian Ocean, renowned for its pristine white-sand beaches, crystal-clear waters, and lush tropical landscapes. A haven for luxury travelers, honeymooners, and nature lovers, Seychelles offers a perfect mix of relaxation, adventure, and rich marine biodiversity. Whether you're exploring vibrant coral reefs, hiking through lush nature reserves, or indulging in world-class resorts, this island paradise promises an unforgettable experience.",
+    latitude: -4.679574,
+    longitude: 55.491977,
+    bounds: {
+      southWest: [-10.000000, 50.000000],
+      northEast: [-4.000000, 57.000000],
+    },
     top_experiences: [
       {
         title: "Mahé Island – The Heart of Seychelles",
@@ -498,5 +564,65 @@ export const destinations: Destination[] = [
       },
     ],
   },
-  //TODO Add Madagascar
+  {
+    id: 11,
+    name: "Madagascar",
+    image: "/Destination/Madagascar.jpg",
+    category: "Tropical Islands",
+    overview: "Madagascar is an exotic island escape filled with rare wildlife, diverse landscapes, and rich cultural traditions. Known for its endemic species like lemurs and baobabs, it promises a once-in-a-lifetime journey for nature lovers and explorers. From the jagged limestone pinnacles of Tsingy de Bemaraha to the lush rainforests of Andasibe and the golden beaches of Nosy Be, Madagascar is a land of contrasts. Visitors can immerse themselves in vibrant Malagasy culture, spot chameleons in their natural habitat, and discover hidden waterfalls and remote coastlines untouched by mass tourism.",
+    latitude: -18.766947,
+    longitude: 46.869107,
+    bounds: {
+      southWest: [-26.000000, 43.000000],
+      northEast: [-12.000000, 51.000000],
+    },
+    top_experiences: [
+      {
+        title: " Avenue of the Baobabs",
+        description: "Walk among ancient baobab trees in a surreal sunset landscape. One of Madagascar’s most iconic sights and a photographer’s dream.",
+        image:["/Exp/MD/md_baobabs_1.jpg","/Exp/MD/md_baobabs_2.jpg", "/Exp/MD/md_baobabs_3.jpg", "/Exp/MD/md_baobabs_4.jpg"]
+      },
+      {
+        title: "Lemur Watching in Andasibe",
+        description: "Spot various lemur species in lush, misty rainforests. Discover Madagascar’s beloved primates in their natural habitat.",
+        image:["/Exp/MD/md_lemur_1.jpg","/Exp/MD/md_lemur_2.jpg", "/Exp/MD/md_lemur_3.jpg", "/Exp/MD/md_lemur_4.jpg"]
+      },
+      {
+        title: " Luxury in Nosy Be",
+        description: "Relax in high-end oceanfront retreats with snorkeling, diving, and spa treatments. A tropical escape with turquoise waters and white sands.",
+        image:["/Exp/MD/md_nosybe_1.jpg","/Exp/MD/md_nosyb_2.jpg", "/Exp/MD/md_nosyb_3.jpg", "/Exp/MD/md_nosyb_4.jpg"]
+      },
+      {
+        title: "Whale Watching & Marine Safaris",
+        description: "See humpback whales, whale sharks, and dolphins off Madagascar's pristine coastlines. Seasonal spectacles unfold on the surrounding ocean.",
+        image:["/Exp/MD/md_whale_1.jpg","/Exp/MD/md_whale_2.jpg", "/Exp/MD/md_whale_3.jpg", "/Exp/MD/md_whale_4.jpg"]
+      },
+      {
+        title: "Tsingy de Bemaraha",
+        description: "Trek through a labyrinth of jagged limestone pinnacles in a UNESCO World Heritage Site. A dramatic and adventurous experience for avid hikers.",
+        image:["/Exp/MD/md_tsingy_1.jpg","/Exp/MD/md_tsingy_2.jpg", "/Exp/MD/md_tsingy_3.jpg", "/Exp/MD/md_tsingy_4.jpg"]
+      },
+      {
+        title: "Cultural Tours in Antananarivo",
+        description: "Explore the island's capital with its French colonial charm and bustling markets. Dive into local cuisine, history, and urban life.",
+        image:["/Exp/MD/md_antananarivo_1.jpg","/Exp/MD/md_antananarivo_2.jpg", "/Exp/MD/md_antananarivo_3.jpg", "/Exp/MD/md_antananarivo_4.jpg"]
+      },
+      {
+        title: "Masoala National Park",
+        description: "Adventure through remote rainforests and untouched beaches. Discover coral reefs, exotic birds, and rich biodiversity.",
+        image:["/Exp/MD/md_masoala_1.jpg","/Exp/MD/md_masoala_2.jpg", "/Exp/MD/md_masoala_3.jpg", "/Exp/MD/md_masoala_4.jpg"]
+      },
+    ],
+    time_to_visits: [
+      {
+        months: "April - December:",
+        reason: "Best for dry weather, wildlife spotting, and beach holidays.",
+      },
+      {
+        months: "July - September:",
+        reason: "Ideal for whale watching in coastal regions.",
+      },
+    ],
+  },
+  
 ];

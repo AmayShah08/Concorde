@@ -6,6 +6,7 @@ import { PopularDestinationsSection } from "./screens/Frame/sections/PopularDest
 import { DestinationDetails } from "./screens/Frame/sections/PopularDestinationsSection/DestinationDetails";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { AboutUs } from "./pages/AboutUs";
+import 'leaflet/dist/leaflet.css';
 
 // Placeholder components for new pages
 const SafarisPage = () => <div>Safaris Page</div>;

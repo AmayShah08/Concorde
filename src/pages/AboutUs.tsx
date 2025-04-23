@@ -10,22 +10,18 @@ export const AboutUs = (): JSX.Element => {
 
             {/* About Us Content */}
             <section className="py-20 w-full bg-neutral-50">
-                <div className="max-w-[1280px] mx-auto px-4">
-                    {/* Image Above the Content */}
-                    <div className="mb-8 flex justify-center">
+                <div className="max-w-[1280px] mx-60 px-4">
+                    {/* Image Aligned to the left */}
                         <img
                             src="/Concorde.png"
                             alt="About Us"
-                            className="w-full max-w-[500px] h-auto rounded-lg shadow-md"
+                            className="float-left mr-6 mb-4 w-[600px] h-auto rounded-lg shadow-md"
                         />
                     </div>
 
                     {/* Content Section */}
-                    <h2 className="text-4xl font-bold mb-4 text-center">About Us</h2>
-                    <h3 className="text-2xl font-semibold mb-8">
-                        About Concorde Car Hire & Safaris
-                    </h3>
-                    <p className="text-lg text-neutral-700 leading-8 text-justify">
+                    <h2 className="text-4xl font-bold mb-4 text-center mx-60">About Concorde Car Hire & Safaris</h2>
+                    <p className="text-lg text-neutral-700 leading-8 text-justify mx-60">
                         Founded in 1973, Concorde Car Hire was inspired by the iconic supersonic jet, Concorde —
                         a timeless symbol of innovation, speed, and elegance. While the aircraft now belongs to
                         history, its spirit of excellence lives on in our commitment to delivering top-tier,
@@ -33,7 +29,7 @@ export const AboutUs = (): JSX.Element => {
                         intentionally small and interactive, prioritizing quality over scale. Our clients aren’t just
                         served — they’re guided, supported, and welcomed like family.
                     </p>
-                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify">
+                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify mx-60">
                         In the mid-90s, growing demand from our car hire clientele sparked the natural evolution
                         into Concorde Safaris. Two decades later, we’ve become a trusted Destination Management
                         Company, known for crafting tailor-made African experiences that reflect each traveler’s
@@ -41,25 +37,25 @@ export const AboutUs = (): JSX.Element => {
                         teams, and diplomatic staff, we curate everything from classic Big Five safaris to immersive
                         cultural journeys — always with a personal touch.
                     </p>
-                    <h3 className="text-2xl font-semibold mb-4 mt-8">
+                    <h3 className="text-2xl font-semibold mb-4 mt-8 mx-60">
                         Where We Take You
                     </h3>
-                    <p className="text-lg text-neutral-700 leading-8 text-justify">
+                    <p className="text-lg text-neutral-700 leading-8 text-justify mx-60">
                     Our safaris span the best of Africa — both the iconic and the off-the-beaten-path:
                     </p>
-                    <ul className="list-disc list-inside mt-4 text-lg text-neutral-700 leading-8">
+                    <ul className="list-disc list-inside mt-4 text-lg text-neutral-700 leading-8 mx-60">
                         <li className="mb-2">East Africa: Kenya, Uganda, Tanzania, Zanzibar, Rwanda</li>
                         <li className="mb-2">Southern Africa: South Africa, Namibia, Botswana, Zambia, Zimbabwe</li>
                         <li className="mb-2">North Africa: Egypt, Ethiopia</li>
                         <li className="mb-2">Indian Ocean Escapes: Mauritius, Seychelles, and Madagascar</li>
                     </ul>
-                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify">
+                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify mx-60">
                     Whether by road or air, our safaris are designed to be immersive, unforgettable, and soul-stirring.
                     </p>
-                    <h3 className="text-2xl font-semibold mb-4 mt-8">
+                    <h3 className="text-2xl font-semibold mb-4 mt-8 mx-60">
                         Why Choose Concorde?
                     </h3>
-                    <ul className="list-none list-inside mt-4 text-lg text-neutral-700 leading-8 text-justify">
+                    <ul className="list-none list-inside mt-4 text-lg text-neutral-700 leading-8 text-justify mx-60">
                         <li className="mb-2">
                         🧭 <strong>Personalised Service:</strong> We’re known for our warm, interactive approach. Our 
                         clients feel guided, supported, and truly cared for — especially in unfamiliar environments.
@@ -90,18 +86,17 @@ export const AboutUs = (): JSX.Element => {
                         with staff available to provide prompt assistance, always ensuring a seamless and stress-free experience.
                         </li>                    
                     </ul>
-                    <h3 className="text-2xl font-semibold mb-4 mt-8">
+                    <h3 className="text-2xl font-semibold mb-4 mt-8 mx-60">
                         Visit Us
                         </h3>
-                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify">
+                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify mx-60">
                     We’re based at Westlands Square Offices in Nairobi’s vibrant Westlands area — a secure, convenient hub for 
                     all your travel arrangements.
                     </p>
-                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify">
+                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify mx-60">
                     Concorde Car Hire and Concorde Safaris are proud associate members of the well-established Concorde Group 
                     of Companies in Kenya — a testament to our enduring commitment to service and excellence.
                     </p>
-                </div>
             </section>
 
             {/* Footer */}
