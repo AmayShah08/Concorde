@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../../../components/ui/button";
 import {
@@ -14,9 +14,22 @@ import { FlightForm } from "../../../../components/forms/flight-form";
 export const NavBar = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeForm, setActiveForm] = useState<"safari" | "carhire" | "flight">("safari");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  // Detect scroll to toggle navbar size
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Shrink navbar after scrolling 50px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Navigation menu items data
   const navItems = [
@@ -28,13 +41,21 @@ export const NavBar = (): JSX.Element => {
   ];
 
   return (
-    <header className="w-full h-16 bg-white border-b">
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "h-16 bg-white shadow-md" : "h-24 bg-gray-100"
+      }`}
+    >
       <div className="container mx-auto h-full px-4">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <div className="h-20">
+          <div className={`h-full ${isScrolled ? "h-16" : "h-20"}`}>
             <Link to="/">
-              <img className="h-full" alt="Logo" src="/Final-Logo.png" />
+              <img
+                className="h-full transition-all duration-300"
+                alt="Logo"
+                src="/Final-Logo.png"
+              />
             </Link>
           </div>
 
@@ -78,21 +99,27 @@ export const NavBar = (): JSX.Element => {
             <div className="flex justify-center space-x-4 mb-4">
               <Button
                 variant="outline"
-                className={`px-4 py-2 ${activeForm === "safari" ? "bg-neutral-800 text-white" : ""}`}
+                className={`px-4 py-2 ${
+                  activeForm === "safari" ? "bg-neutral-800 text-white" : ""
+                }`}
                 onClick={() => setActiveForm("safari")}
               >
                 Safari Form
               </Button>
               <Button
                 variant="outline"
-                className={`px-4 py-2 ${activeForm === "carhire" ? "bg-neutral-800 text-white" : ""}`}
+                className={`px-4 py-2 ${
+                  activeForm === "carhire" ? "bg-neutral-800 text-white" : ""
+                }`}
                 onClick={() => setActiveForm("carhire")}
               >
                 Car Hire Form
               </Button>
               <Button
                 variant="outline"
-                className={`px-4 py-2 ${activeForm === "flight" ? "bg-neutral-800 text-white" : ""}`}
+                className={`px-4 py-2 ${
+                  activeForm === "flight" ? "bg-neutral-800 text-white" : ""
+                }`}
                 onClick={() => setActiveForm("flight")}
               >
                 Flight Form

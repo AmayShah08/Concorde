@@ -25,6 +25,14 @@ export const NewsletterSection = (): JSX.Element => {
             data-elfsight-app-lazy
           ></div>
         </div>
+
+        {/* Additional Elfsight Reviews from Tripadvisor */}
+        <div className="mt-12">
+          <div
+            className="elfsight-app-02568262-d321-4f97-ae9a-d6f6ca8577bc"
+            data-elfsight-app-lazy
+          ></div>
+        </div>
       </div>
     </section>
   );

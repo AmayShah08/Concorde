@@ -34,9 +34,9 @@ export const DestinationSection = (): JSX.Element => {
   }, [emblaApi]);
 
   return (
-    <section className="relative w-full h-[80vh]">
+    <section className="relative w-full h-[80vh] pt-30">
       {/* Static Text Content */}
-      <div className="absolute inset-x-0 top-0 z-10 py-8">
+      <div className="absolute inset-x-0 top-24 z-10 py-8">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="flex flex-col items-center justify-center text-center">
             <h2 className="text-4xl md:text-5xl font-medium font-['Roboto',Helvetica] tracking-normal mb-4 md:mb-8 text-white drop-shadow-lg">

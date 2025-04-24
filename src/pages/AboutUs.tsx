@@ -93,10 +93,6 @@ export const AboutUs = (): JSX.Element => {
                     We’re based at Westlands Square Offices in Nairobi’s vibrant Westlands area — a secure, convenient hub for 
                     all your travel arrangements.
                     </p>
-                    <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify mx-60">
-                    Concorde Car Hire and Concorde Safaris are proud associate members of the well-established Concorde Group 
-                    of Companies in Kenya — a testament to our enduring commitment to service and excellence.
-                    </p>
             </section>
 
             {/* Footer */}

@@ -41,7 +41,7 @@ export const DestinationDetails = (): JSX.Element => {
     <div className="flex flex-col min-h-screen">
       {/* Navigation Bar */}
       <NavBar />
-      <div className="container mx-auto px-4 py-12 flex-grow">
+      <div className="container mx-auto px-4 py-12 flex-grow pt-24">
         {/* Hero Banner */}
         <div
           className="relative w-full h-64 bg-cover bg-center rounded-lg mb-6"
@@ -58,7 +58,7 @@ export const DestinationDetails = (): JSX.Element => {
           {/* Map Section */}
           <div className="w-full lg:w-1/2 h-96">
             <MapContainer
-              className="h-full w-full rounded-lg shadow-md"
+              className="h-full w-full rounded-lg shadow-md z-0"
               center={[destination.latitude, destination.longitude]} // Fallback center
               zoom={6} // Fallback zoom
               scrollWheelZoom={false}
