@@ -1,6 +1,6 @@
 import React from "react";
-import { NavBar } from "../screens/Frame/sections/HeroSection/NavBar"; // Adjust the path based on your project structure
-import { FooterSection } from "../screens/Frame/sections/FooterSection/FooterSection"; // Adjust the path based on your project structure
+import { NavBar } from "../screens/Frame/sections/HeroSection/NavBar";
+import { FooterSection } from "../screens/Frame/sections/FooterSection/FooterSection";
 
 export const AboutUs = (): JSX.Element => {
     return (
@@ -10,7 +10,7 @@ export const AboutUs = (): JSX.Element => {
 
             {/* About Us Content */}
             <section className="py-20 w-full bg-neutral-50">
-                <div className="max-w-[1280px] mx-60 px-4">
+                <div className="max-w-[1280px] mx-60 px-4 pt-12">
                     {/* Image Aligned to the left */}
                         <img
                             src="/Concorde.png"
@@ -57,32 +57,32 @@ export const AboutUs = (): JSX.Element => {
                     </h3>
                     <ul className="list-none list-inside mt-4 text-lg text-neutral-700 leading-8 text-justify mx-60">
                         <li className="mb-2">
-                        🧭 <strong>Personalised Service:</strong> We’re known for our warm, interactive approach. Our 
+                        🧭 <strong>Personalised Service: </strong> We’re known for our warm, interactive approach. Our 
                         clients feel guided, supported, and truly cared for — especially in unfamiliar environments.
                         </li>
                         <li className="mb-2">
-                        📆 <strong>Extensive Experience:</strong>With over two decades of safari planning under our belt, 
+                        📆 <strong>Extensive Experience: </strong>With over two decades of safari planning under our belt, 
                         we’ve built a reputation for reliability and excellence across varied clientele.
                         </li>
                         <li className="mb-2">
-                        🌍 <strong>Comprehensive Regional Coverage:</strong>We offer customized safaris across Eastern, 
+                        🌍 <strong>Comprehensive Regional Coverage: </strong>We offer customized safaris across Eastern, 
                         Southern, and Northern Africa, along with exotic island destinations like Mauritius, Seychelles, 
                         and Madagascar.
                         </li>
                         <li className="mb-2">
-                        ✈️ <strong>Expert Flight Coordination:</strong>Our team scouts the best routes and rates globally 
+                        ✈️ <strong>Expert Flight Coordination: </strong>Our team scouts the best routes and rates globally 
                         to create seamless, flights-inclusive safari packages — saving you time and hassle.
                         </li>
                         <li className="mb-2">
-                        🦁 <strong>Knowledgeable Guides:</strong>Our guides are not only skilled drivers and game spotters, 
+                        🦁 <strong>Knowledgeable Guides: </strong>Our guides are not only skilled drivers and game spotters, 
                         but also storytellers — passionate about sharing the history, culture, and wildlife of their homelands.
                         </li>
                         <li className="mb-2">
-                        🚗 <strong>Reliable Vehicle Fleet:</strong>Our vehicles are handpicked for local conditions and expertly 
+                        🚗 <strong>Reliable Vehicle Fleet: </strong>Our vehicles are handpicked for local conditions and expertly 
                         maintained to ensure comfort and reliability in even the most rugged terrains.
                         </li>
                         <li className="mb-2">
-                        📞 <strong>Support:</strong>Clients have access to dedicated after-hours emergency contact numbers, 
+                        📞 <strong>Support: </strong>Clients have access to dedicated after-hours emergency contact numbers, 
                         with staff available to provide prompt assistance, always ensuring a seamless and stress-free experience.
                         </li>                    
                     </ul>

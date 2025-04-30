@@ -25,6 +25,7 @@ export const DestinationDetails = (): JSX.Element => {
 
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [selectedImage, setSelectedImage] = useState<string | null>(null); // State for selected image
 
   if (!destination) {
     return <div className="text-center text-red-500">Destination not found!</div>;
@@ -36,6 +37,9 @@ export const DestinationDetails = (): JSX.Element => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const openImageModal = (image: string) => setSelectedImage(image); // Open image modal
+  const closeImageModal = () => setSelectedImage(null); // Close image modal
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -108,7 +112,8 @@ export const DestinationDetails = (): JSX.Element => {
                         key={imgIndex}
                         src={img}
                         alt={`${experience.title} - ${imgIndex + 1}`}
-                        className="w-full h-48 object-cover rounded-md"
+                        className="w-full h-48 object-cover rounded-md cursor-pointer"
+                        onClick={() => openImageModal(img)} // Open modal on click
                       />
                     ))}
                   </div>
@@ -149,6 +154,25 @@ export const DestinationDetails = (): JSX.Element => {
               ✕
             </button>
             <SafariForm />
+          </div>
+        </div>
+      )}
+
+      {/* Modal for Enlarged Image */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="relative">
+            <button
+              onClick={closeImageModal}
+              className="absolute top-2 right-2 text-white text-2xl font-bold"
+            >
+              ✕
+            </button>
+            <img
+              src={selectedImage}
+              alt="Enlarged"
+              className="max-w-full max-h-screen rounded-lg shadow-lg"
+            />
           </div>
         </div>
       )}

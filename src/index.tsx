@@ -6,14 +6,16 @@ import { PopularDestinationsSection } from "./screens/Frame/sections/PopularDest
 import { DestinationDetails } from "./screens/Frame/sections/PopularDestinationsSection/DestinationDetails";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { AboutUs } from "./pages/AboutUs";
+import { Travel } from "./pages/Travel";
+import {ContactUs } from "./pages/ContactUs";
 import 'leaflet/dist/leaflet.css';
 
 // Placeholder components for new pages
-const SafarisPage = () => <div>Safaris Page</div>;
-const TravelPage = () => <div>Travel Page</div>;
+//const SafarisPage = () => <div>Safaris Page</div>;
+//const TravelPage = () => <div>Travel Page</div>;
 const CarHirePage = () => <div>Car Hire Page</div>;
-const AboutPage = () => <div>About Us Page</div>;
-const ContactPage = () => <div>Contact Us Page</div>;
+//const AboutPage = () => <div>About Us Page</div>;
+//const ContactPage = () => <div>Contact Us Page</div>;
 
 createRoot(document.getElementById("app") as HTMLElement).render(
   <StrictMode>
@@ -30,10 +32,10 @@ createRoot(document.getElementById("app") as HTMLElement).render(
         <Route path="/destination/:name" element={<DestinationDetails />} />
 
         {/* New Pages */}
-        <Route path="/travel" element={<TravelPage />} />
+        <Route path="/travel" element={<Travel />} />
         <Route path="/carhire" element={<CarHirePage />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Router>
   </StrictMode>,
