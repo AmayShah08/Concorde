@@ -11,9 +11,19 @@ const carImages = [
   "/cars/4x4-action.jpg",
 ];
 
+// Map vehicle name to image for the table
+const carImageMap: Record<string, string> = {
+  "Nissan Teana": "/cars/NissanTeana1.jpg",
+  "Pajero IO": "/cars/Pajeroio1.jpg",
+  "Nissan X-Trail": "/cars/NissanXtrail1.jpg",
+  "Mitsubishi Pajero": "/cars/MitsubishiPajeroD1.jpg",
+  "Toyota Land Cruiser": "/cars/ToyotaLandcruiser1.jpg",
+};
+
 export const CarHire = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const [selectedCarImage, setSelectedCarImage] = useState<string | null>(null);
 
   // Simple rolodex logic
   React.useEffect(() => {
@@ -25,6 +35,14 @@ export const CarHire = (): JSX.Element => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const openCarImageModal = (vehicleName: string) => {
+    setSelectedCarImage(carImageMap[vehicleName] || null);
+  };
+  const closeCarImageModal = () => {
+    setSelectedCarImage(null);
+  };
+
 
   return (
     <>
@@ -74,7 +92,7 @@ export const CarHire = (): JSX.Element => {
               <thead>
                 <tr className="bg-gray-200">
                   <th className="py-2 px-3 border">Vehicle Class</th>
-                  <th className="py-2 px-3 border">Vehicle Type</th>
+                  <th className="py-2 px-3 border">Vehicle Name</th>
                   <th className="py-2 px-3 border">Daily Rate</th>
                   <th className="py-2 px-3 border">Weekly Rate</th>
                   <th className="py-2 px-3 border">Extra per km</th>
@@ -85,7 +103,14 @@ export const CarHire = (): JSX.Element => {
               <tbody>
                 <tr>
                   <td className="py-2 px-3 border">A</td>
-                  <td className="py-2 px-3 border">Nissan Bluebird Sylphy</td>
+                  <td className="py-2 px-3 border">
+                    <button
+                      className="text-blue-600 underline hover:text-blue-800"
+                      onClick={() => openCarImageModal("Nissan Teana")}
+                    >
+                      Nissan Teana
+                    </button>
+                  </td>
                   <td className="py-2 px-3 border">Ksh 6,100</td>
                   <td className="py-2 px-3 border">Ksh 36,600</td>
                   <td className="py-2 px-3 border">Ksh 33.00</td>
@@ -94,7 +119,14 @@ export const CarHire = (): JSX.Element => {
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border">B</td>
-                  <td className="py-2 px-3 border">Pajero IO</td>
+                  <td className="py-2 px-3 border">
+                    <button
+                      className="text-blue-600 underline hover:text-blue-800"
+                      onClick={() => openCarImageModal("Pajero IO")}
+                    >
+                      Pajero IO
+                    </button>
+                  </td>
                   <td className="py-2 px-3 border">Ksh 8,300</td>
                   <td className="py-2 px-3 border">Ksh 49,800</td>
                   <td className="py-2 px-3 border">Ksh 36.00</td>
@@ -103,7 +135,14 @@ export const CarHire = (): JSX.Element => {
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border">C</td>
-                  <td className="py-2 px-3 border">Nissan X-Trail</td>
+                  <td className="py-2 px-3 border">
+                    <button
+                      className="text-blue-600 underline hover:text-blue-800"
+                      onClick={() => openCarImageModal("Nissan X-Trail")}
+                    >
+                      Nissan X-Trail
+                    </button>
+                  </td>
                   <td className="py-2 px-3 border">Ksh 9,500</td>
                   <td className="py-2 px-3 border">Ksh 57,000</td>
                   <td className="py-2 px-3 border">Ksh 45.00</td>
@@ -112,7 +151,14 @@ export const CarHire = (): JSX.Element => {
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border">D</td>
-                  <td className="py-2 px-3 border">Mitsubishi Pajero (Auto)</td>
+                  <td className="py-2 px-3 border">
+                    <button
+                      className="text-blue-600 underline hover:text-blue-800"
+                      onClick={() => openCarImageModal("Mitusubishi Pajero")}
+                    >
+                      Mitsubishi Pajero
+                    </button>
+                  </td>
                   <td className="py-2 px-3 border">Ksh 10,900</td>
                   <td className="py-2 px-3 border">Ksh 65,400</td>
                   <td className="py-2 px-3 border">Ksh 47.00</td>
@@ -121,7 +167,14 @@ export const CarHire = (): JSX.Element => {
                 </tr>
                 <tr>
                   <td className="py-2 px-3 border">E</td>
-                  <td className="py-2 px-3 border">Toyota Land Cruiser</td>
+                  <td className="py-2 px-3 border">
+                    <button
+                      className="text-blue-600 underline hover:text-blue-800"
+                      onClick={() => openCarImageModal("Toyota Land Cruiser")}
+                    >
+                      Toyota Land Cruiser
+                    </button>
+                  </td>
                   <td className="py-2 px-3 border">Ksh 14,500</td>
                   <td className="py-2 px-3 border">Ksh 87,000</td>
                   <td className="py-2 px-3 border">Ksh 59.00</td>
@@ -133,6 +186,21 @@ export const CarHire = (): JSX.Element => {
           </div>
         </div>
       </section>
+
+      {/* Car Image Modal */}
+      {selectedCarImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+            <button
+              onClick={closeCarImageModal}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            >
+              ✕
+            </button>
+            <img src={selectedCarImage} alt="Selected Car" className="w-full h-auto rounded-lg" />
+          </div>
+        </div>
+      )}
 
       {/* Additional Sections */}
       <section className="py-12 bg-white">
