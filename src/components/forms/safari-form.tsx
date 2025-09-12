@@ -24,19 +24,27 @@ export const SafariForm = (): JSX.Element => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    alert("Your safari inquiry has been submitted!");
-  };
-
   return (
     <div className="max-w-4xl mx-auto p-4">
       <form
+        action="https://formsubmit.co/safaris@concorde.co.ke"
+        method="POST"
         className="space-y-4 bg-white p-6 rounded-lg shadow-md overflow-y-auto max-h-[90vh]"
-        onSubmit={handleSubmit}
       >
         <h3 className="text-xl font-semibold">Safari Inquiry</h3>
+
+        {/* Hidden custom label fields for FormSubmit */}
+        <input type="hidden" name="_subject" value="Safari Inquiry" />
+        <input type="hidden" name="Full Name" value={formData.fullName} />
+        <input type="hidden" name="Email Address" value={formData.email} />
+        <input type="hidden" name="Country of Origin" value={formData.country} />
+        <input type="hidden" name="Number of Adults" value={formData.adults} />
+        <input type="hidden" name="Number of Children and Ages" value={formData.children} />
+        <input type="hidden" name="Departure Date" value={formData.departureDate} />
+        <input type="hidden" name="Arrival Date" value={formData.arrivalDate} />
+        <input type="hidden" name="Flexible Travel Months" value={formData.flexibleMonths} />
+        <input type="hidden" name="Budget" value={formData.safariType} />
+        <input type="hidden" name="Preferred Rooming Configuration" value={formData.roomingConfig} />
 
         {/* Name and Email Side by Side */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -49,6 +57,7 @@ export const SafariForm = (): JSX.Element => {
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
+              required
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter your full name"
             />
@@ -62,6 +71,7 @@ export const SafariForm = (): JSX.Element => {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter your email"
             />
@@ -78,6 +88,7 @@ export const SafariForm = (): JSX.Element => {
             name="country"
             value={formData.country}
             onChange={handleChange}
+            required
             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter your country of origin"
           />
@@ -93,6 +104,7 @@ export const SafariForm = (): JSX.Element => {
             name="adults"
             value={formData.adults}
             onChange={handleChange}
+            required
             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter number of adults"
           />
@@ -106,6 +118,7 @@ export const SafariForm = (): JSX.Element => {
             name="children"
             value={formData.children}
             onChange={handleChange}
+            required
             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter number of children and their ages"
           />
@@ -122,6 +135,7 @@ export const SafariForm = (): JSX.Element => {
               name="departureDate"
               value={formData.departureDate}
               onChange={handleChange}
+              required
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
@@ -134,6 +148,7 @@ export const SafariForm = (): JSX.Element => {
               name="arrivalDate"
               value={formData.arrivalDate}
               onChange={handleChange}
+              required
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
@@ -167,6 +182,7 @@ export const SafariForm = (): JSX.Element => {
                 value="Luxury"
                 checked={formData.safariType === "Luxury"}
                 onChange={handleChange}
+                required
                 className="text-blue-500 focus:ring-blue-500"
               />
               <span className="text-gray-700">Luxury</span>
@@ -178,6 +194,7 @@ export const SafariForm = (): JSX.Element => {
                 value="Mid-range"
                 checked={formData.safariType === "Mid-range"}
                 onChange={handleChange}
+                required
                 className="text-blue-500 focus:ring-blue-500"
               />
               <span className="text-gray-700">Mid-range</span>
@@ -189,6 +206,7 @@ export const SafariForm = (): JSX.Element => {
                 value="Budget-friendly"
                 checked={formData.safariType === "Budget-friendly"}
                 onChange={handleChange}
+                required
                 className="text-blue-500 focus:ring-blue-500"
               />
               <span className="text-gray-700">Budget-friendly</span>
@@ -200,6 +218,7 @@ export const SafariForm = (): JSX.Element => {
                 value="No preference"
                 checked={formData.safariType === "No preference"}
                 onChange={handleChange}
+                required
                 className="text-blue-500 focus:ring-blue-500"
               />
               <span className="text-gray-700">No preference</span>
@@ -217,6 +236,7 @@ export const SafariForm = (): JSX.Element => {
             name="roomingConfig"
             value={formData.roomingConfig}
             onChange={handleChange}
+            required
             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter preferred rooming configuration"
           />

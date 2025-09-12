@@ -154,7 +154,7 @@ export const CarHire = (): JSX.Element => {
                   <td className="py-2 px-3 border">
                     <button
                       className="text-blue-600 underline hover:text-blue-800"
-                      onClick={() => openCarImageModal("Mitusubishi Pajero")}
+                      onClick={() => openCarImageModal("Mitsubishi Pajero")}
                     >
                       Mitsubishi Pajero
                     </button>

@@ -18,17 +18,12 @@ export const CarHireForm = (): JSX.Element => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    alert("Your car hire inquiry has been submitted!");
-  };
-
   return (
     <div className="max-w-4xl mx-auto p-4">
       <form
+        action="https://formsubmit.co/54274f9ea514f94ba959a455f4195b2a" // <-- your recipient email
+        method="POST"
         className="space-y-4 bg-white p-6 rounded-lg shadow-md overflow-y-auto max-h-[90vh]"
-        onSubmit={handleSubmit}
       >
         <h3 className="text-xl font-semibold">Car Hire Inquiry</h3>
 
@@ -43,6 +38,7 @@ export const CarHireForm = (): JSX.Element => {
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
+              required
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter your full name"
             />
@@ -56,6 +52,7 @@ export const CarHireForm = (): JSX.Element => {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter your email"
             />
@@ -72,6 +69,7 @@ export const CarHireForm = (): JSX.Element => {
             name="pax"
             value={formData.pax}
             onChange={handleChange}
+            required
             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter number of passengers"
           />
@@ -83,61 +81,20 @@ export const CarHireForm = (): JSX.Element => {
             Preferred Vehicle Class
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-            <label className="flex items-center gap-x-2">
-              <input
-                type="radio"
-                name="vehicleClass"
-                value="A"
-                checked={formData.vehicleClass === "A"}
-                onChange={handleChange}
-                className="text-blue-500 focus:ring-blue-500"
-              />
-              <span className="text-gray-700">A</span>
-            </label>
-            <label className="flex items-center gap-x-2">
-              <input
-                type="radio"
-                name="vehicleClass"
-                value="B"
-                checked={formData.vehicleClass === "B"}
-                onChange={handleChange}
-                className="text-blue-500 focus:ring-blue-500"
-              />
-              <span className="text-gray-700">B</span>
-            </label>
-            <label className="flex items-center gap-x-2">
-              <input
-                type="radio"
-                name="vehicleClass"
-                value="C"
-                checked={formData.vehicleClass === "C"}
-                onChange={handleChange}
-                className="text-blue-500 focus:ring-blue-500"
-              />
-              <span className="text-gray-700">C</span>
-            </label>
-            <label className="flex items-center gap-x-2">
-              <input
-                type="radio"
-                name="vehicleClass"
-                value="D"
-                checked={formData.vehicleClass === "D"}
-                onChange={handleChange}
-                className="text-blue-500 focus:ring-blue-500"
-              />
-              <span className="text-gray-700">D</span>
-            </label>
-            <label className="flex items-center gap-x-2">
-              <input
-                type="radio"
-                name="vehicleClass"
-                value="E"
-                checked={formData.vehicleClass === "E"}
-                onChange={handleChange}
-                className="text-blue-500 focus:ring-blue-500"
-              />
-              <span className="text-gray-700">E</span>
-            </label>
+            {["A", "B", "C", "D", "E"].map((v) => (
+              <label key={v} className="flex items-center gap-x-2">
+                <input
+                  type="radio"
+                  name="vehicleClass"
+                  value={v}
+                  checked={formData.vehicleClass === v}
+                  onChange={handleChange}
+                  required
+                  className="text-blue-500 focus:ring-blue-500"
+                />
+                <span className="text-gray-700">{v}</span>
+              </label>
+            ))}
           </div>
         </div>
 
@@ -147,28 +104,20 @@ export const CarHireForm = (): JSX.Element => {
             Do You Need a Driver?
           </label>
           <div className="flex items-center gap-4 mt-2">
-            <label className="flex items-center gap-x-2">
-              <input
-                type="radio"
-                name="needDriver"
-                value="Yes"
-                checked={formData.needDriver === "Yes"}
-                onChange={handleChange}
-                className="text-blue-500 focus:ring-blue-500"
-              />
-              <span className="text-gray-700">Yes</span>
-            </label>
-            <label className="flex items-center gap-x-2">
-              <input
-                type="radio"
-                name="needDriver"
-                value="No"
-                checked={formData.needDriver === "No"}
-                onChange={handleChange}
-                className="text-blue-500 focus:ring-blue-500"
-              />
-              <span className="text-gray-700">No</span>
-            </label>
+            {["Yes", "No"].map((v) => (
+              <label key={v} className="flex items-center gap-x-2">
+                <input
+                  type="radio"
+                  name="needDriver"
+                  value={v}
+                  checked={formData.needDriver === v}
+                  onChange={handleChange}
+                  required
+                  className="text-blue-500 focus:ring-blue-500"
+                />
+                <span className="text-gray-700">{v}</span>
+              </label>
+            ))}
           </div>
         </div>
 
@@ -182,10 +131,20 @@ export const CarHireForm = (): JSX.Element => {
             name="days"
             value={formData.days}
             onChange={handleChange}
+            required
             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter number of days"
           />
         </div>
+
+        {/* Hidden Inputs for Email Subject and Form Data */}
+        <input type="hidden" name="_subject" value="Car Hire Inquiry" />
+        <input type="hidden" name="Full Name" value={formData.fullName} />
+        <input type="hidden" name="Email Address" value={formData.email} />
+        <input type="hidden" name="Number of Pax" value={formData.pax} />
+        <input type="hidden" name="Preferred Vehicle Class" value={formData.vehicleClass} />
+        <input type="hidden" name="Need Driver" value={formData.needDriver} />
+        <input type="hidden" name="Number of Days" value={formData.days} />
 
         {/* Submit Button */}
         <button

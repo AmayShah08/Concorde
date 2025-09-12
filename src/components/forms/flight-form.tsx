@@ -22,19 +22,25 @@ export const FlightForm = (): JSX.Element => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log("Form Data Submitted:", formData);
-        alert("Your flight inquiry has been submitted!");
-    };
-
     return (
         <div className="max-w-4xl mx-auto p-4">
             <form
+                action="https://formsubmit.co/tours@concorde.co.ke"
+                method="POST"
                 className="space-y-4 bg-white p-6 rounded-lg shadow-md overflow-y-auto max-h-[90vh]"
-                onSubmit={handleSubmit}
             >
                 <h3 className="text-xl font-semibold">Flight Inquiry</h3>
+
+                {/* Hidden custom label fields for FormSubmit */}
+                <input type="hidden" name="_subject" value="Flight Inquiry" />
+                <input type="hidden" name="Full Name" value={formData.fullName} />
+                <input type="hidden" name="Email Address" value={formData.email} />
+                <input type="hidden" name="Passport Origin" value={formData.passportOrigin} />
+                <input type="hidden" name="Number of Adults" value={formData.adults} />
+                <input type="hidden" name="Number of Children (<12 years)" value={formData.children} />
+                <input type="hidden" name="Departure Date" value={formData.departureDate} />
+                <input type="hidden" name="Arrival Date" value={formData.arrivalDate} />
+                <input type="hidden" name="Flexible Travel Months" value={formData.flexibleMonths} />
 
                 {/* Name and Email Side by Side */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -47,6 +53,7 @@ export const FlightForm = (): JSX.Element => {
                             name="fullName"
                             value={formData.fullName}
                             onChange={handleChange}
+                            required
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Enter your full name"
                         />
@@ -60,6 +67,7 @@ export const FlightForm = (): JSX.Element => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
+                            required
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Enter your email"
                         />
@@ -76,6 +84,7 @@ export const FlightForm = (): JSX.Element => {
                         name="passportOrigin"
                         value={formData.passportOrigin}
                         onChange={handleChange}
+                        required
                         className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter your passport origin"
                     />
@@ -91,6 +100,7 @@ export const FlightForm = (): JSX.Element => {
                         name="adults"
                         value={formData.adults}
                         onChange={handleChange}
+                        required
                         className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter number of adults"
                     />
@@ -104,6 +114,7 @@ export const FlightForm = (): JSX.Element => {
                         name="children"
                         value={formData.children}
                         onChange={handleChange}
+                        required
                         className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter number of children"
                     />
@@ -120,6 +131,7 @@ export const FlightForm = (): JSX.Element => {
                             name="departureDate"
                             value={formData.departureDate}
                             onChange={handleChange}
+                            required
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         />
                     </div>
@@ -132,6 +144,7 @@ export const FlightForm = (): JSX.Element => {
                             name="arrivalDate"
                             value={formData.arrivalDate}
                             onChange={handleChange}
+                            required
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         />
                     </div>

@@ -5,6 +5,7 @@ import { NavBar } from "./sections/HeroSection/NavBar";
 import { NewsletterSection } from "./sections/NewsletterSection/NewsletterSection";
 import { ServicesSection } from "./sections/ServicesSection/ServicesSection";
 import { PopularDestinationsSection } from "./sections/PopularDestinationsSection/PopularDestinationsSection";
+import { ExperienceSection } from "./sections/ExperienceSection/ExperienceSection";
 
 export const Frame = (): JSX.Element => {
   return (
@@ -20,6 +21,10 @@ export const Frame = (): JSX.Element => {
 
       <section className="w-full">
         <PopularDestinationsSection />
+      </section>
+
+      <section className="w-full">
+        <ExperienceSection />
       </section>
 
       <section className="w-full">
