@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { destinations } from "../../../../data/destinations";
 
-export const PopularDestinationsSection = (): JSX.Element => {
+const PopularDestinationsSection = (): JSX.Element => {
   const navigate = useNavigate();
 
   // Group destinations by category
@@ -120,3 +120,5 @@ export const PopularDestinationsSection = (): JSX.Element => {
     </section>
   );
 };
+
+export default PopularDestinationsSection;

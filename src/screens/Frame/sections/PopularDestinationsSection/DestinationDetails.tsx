@@ -18,7 +18,7 @@ const FitBounds = ({ bounds }: { bounds: [[number, number], [number, number]] })
   return null;
 };
 
-export const DestinationDetails = (): JSX.Element => {
+const DestinationDetails = (): JSX.Element => {
   const { name } = useParams<{ name: string }>();
   const decodedName = decodeURIComponent(name || ""); // Decode name from the URL
   const destination = destinations.find((dest) => dest.name === decodedName);
@@ -182,3 +182,5 @@ export const DestinationDetails = (): JSX.Element => {
     </div>
   );
 };
+
+export default DestinationDetails;

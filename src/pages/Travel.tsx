@@ -4,7 +4,7 @@ import { FooterSection } from "../screens/Frame/sections/FooterSection/FooterSec
 import { FlightForm } from "../components/forms/flight-form";
 
 
-export const Travel = (): JSX.Element => {
+const Travel = (): JSX.Element => {
 
     const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
     
@@ -174,3 +174,5 @@ export const Travel = (): JSX.Element => {
         </>
     );
 };
+
+export default Travel;

@@ -2,7 +2,7 @@ import React from "react";
 import { NavBar } from "../screens/Frame/sections/HeroSection/NavBar";
 import { FooterSection } from "../screens/Frame/sections/FooterSection/FooterSection";
 
-export const AboutUs = (): JSX.Element => {
+const AboutUs = (): JSX.Element => {
     return (
         <>
             {/* Navbar */}
@@ -100,3 +100,5 @@ export const AboutUs = (): JSX.Element => {
         </>
     );
 };
+
+export default AboutUs;

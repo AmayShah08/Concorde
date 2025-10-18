@@ -20,7 +20,7 @@ const carImageMap: Record<string, string> = {
   "Toyota Land Cruiser": "/cars/ToyotaLandcruiser1.jpg",
 };
 
-export const CarHire = (): JSX.Element => {
+const CarHire = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedCarImage, setSelectedCarImage] = useState<string | null>(null);
@@ -282,3 +282,5 @@ export const CarHire = (): JSX.Element => {
     </>
   );
 };
+
+export default CarHire;

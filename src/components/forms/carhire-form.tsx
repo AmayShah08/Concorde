@@ -21,7 +21,7 @@ export const CarHireForm = (): JSX.Element => {
   return (
     <div className="max-w-4xl mx-auto p-4">
       <form
-        action="https://formsubmit.co/54274f9ea514f94ba959a455f4195b2a" // <-- your recipient email
+        action="https://formsubmit.co/carhire@concorde.co.ke" // <-- your recipient email
         method="POST"
         className="space-y-4 bg-white p-6 rounded-lg shadow-md overflow-y-auto max-h-[90vh]"
       >

@@ -3,7 +3,7 @@ import { NavBar } from "../screens/Frame/sections/HeroSection/NavBar";
 import { FooterSection } from "../screens/Frame/sections/FooterSection/FooterSection";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-export const ContactUs = (): JSX.Element => {
+const ContactUs = (): JSX.Element => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => setIsModalOpen(true);
@@ -202,3 +202,5 @@ export const ContactUs = (): JSX.Element => {
         </>
     );
 };
+
+export default ContactUs;
