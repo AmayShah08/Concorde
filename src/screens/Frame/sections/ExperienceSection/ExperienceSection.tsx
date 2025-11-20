@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 const cards = [
   { title: "Walk Among Giants", image: "/Exp/Wonder/karisa_walking_safari_1.webp", link: "/experience/safari" },
   { title: "Cycling Around Zanzibar", image: "/experience/beach.jpg", link: "/experience/beach" },
-  { title: "Ride with the Wild", image: "/Exp/Wonder/HorsebackSafaris2.jpg", link: "/experience/mountain" },
+  { title: "Ride with the Wild", image: "/Exp/Wonder/horseback2.jpg", link: "/experience/mountain" },
   { title: "Luxury Cruises", image: "/experience/city.jpg", link: "/experience/city" },
   { title: "Mt. Kenya and Kilimanjaro Hiking", image: "/experience/culture.jpg", link: "/experience/culture" },
-  { title: "Journey Back in Time", image: "/Exp/Wonder/Camel_Safaris_4.webp", link: "/experience/wildlife" },
+  { title: "Journey Back in Time", image: "/Exp/Wonder/camel4.webp", link: "/experience/wildlife" },
 ];
 
 export const ExperienceSection = (): JSX.Element => {
