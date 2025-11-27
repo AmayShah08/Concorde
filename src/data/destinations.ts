@@ -15,7 +15,6 @@ export interface Destination {
     description: string;
     image: string[];
   }[];
-  time_to_visits: { months: string; reason: string }[];
 }
 
 export const destinations: Destination[] = [
@@ -57,18 +56,7 @@ export const destinations: Destination[] = [
       description: "From Diani to Lamu, Kenya’s coastline is a paradise of white beaches and Swahili culture. Diani Beach is perfect for water sports like kite surfing and diving, while Lamu Island offers a laid-back escape with historic Swahili architecture, bustling markets, and dhow cruises.",
       image:["/Exp/KE/ke_coast_1.jpg","/Exp/KE/ke_coast_2.jpg", "/Exp/KE/ke_coast_3.jpg", "/Exp/KE/ke_coast_4.jpg"]
     },
-
   ],
-    time_to_visits: [
-      {
-        months: "June - October:",
-        reason: "The dry season offers the best wildlife viewing, including the Great Migration.",
-      },
-      {
-        months: "December - March:",
-        reason: "Ideal for beach vacations, birdwatching, and lush green landscapes after the short rains.",
-      },
-    ],
   },
   {
     id: 2,
@@ -109,16 +97,6 @@ export const destinations: Destination[] = [
         image:["/Exp/TZ/tz_manyara_1.jpg","/Exp/TZ/tz_manyara_2.jpg", "/Exp/TZ/tz_manyara_3.jpg", "/Exp/TZ/tz_manyara_4.jpg"]
       },
     ],
-    time_to_visits: [
-      {
-        months: "June - October:",
-        reason: "Peak wildlife season, ideal for safaris with dry conditions and excellent game viewing.",
-      },
-      {
-        months: "December - March:",
-        reason: "The best time for Kilimanjaro trekking, lush landscapes, and a perfect beach getaway in Zanzibar.",
-      },
-    ],
   },
   {
     id: 3,
@@ -157,16 +135,6 @@ export const destinations: Destination[] = [
         title: "Kigali – Africa’s Cleanest & Most Vibrant Capital",
         description: "A city blending modernity with deep history. Visit the Kigali Genocide Memorial, explore bustling markets, and enjoy Rwanda’s growing café culture.",
         image:["/Exp/RW/rw_kigali_1.jpg","/Exp/RW/rw_kigali_2.jpg", "/Exp/RW/rw_kigali_3.jpg", "/Exp/RW/rw_kigali_4.jpg"]
-      },
-    ],
-    time_to_visits: [
-      {
-        months: "June - September & December - February:",
-        reason: "Dry seasons, ideal for gorilla trekking and safaris.",
-      },
-      {
-        months: "March - May & October - November:",
-        reason: "Lush scenery with fewer tourists; best for birdwatching and photography.",
       },
     ],
   },
@@ -212,16 +180,6 @@ export const destinations: Destination[] = [
         title: "Rwenzori Mountains – The Mountains of the Moon",
         description: "A paradise for hikers, with snow-capped peaks, stunning valleys, and unique flora. A challenging but rewarding trekking experience.",
         image:["/Exp/UG/ug_rwenzori_1.jpg","/Exp/UG/ug_rwenzori_2.jpg", "/Exp/UG/ug_rwenzori_3.jpg", "/Exp/UG/ug_rwenzori_4.jpg"]
-      },
-    ],
-    time_to_visits: [
-      {
-        months: "March - May & October - November:",
-        reason: "Lush scenery and fewer crowds, ideal for birdwatching and budget travelers.",
-      },
-      {
-        months: "June - September & December - February:",
-        reason: "Best for gorilla trekking and wildlife safaris, with drier conditions and easier trekking paths.",
       },
     ],
   },
@@ -274,20 +232,6 @@ export const destinations: Destination[] = [
         image:["/Exp/SA/sa_shark_1.jpg","/Exp/SA/sa_shark_2.jpg", "/Exp/SA/sa_shark_3.jpg", "/Exp/SA/sa_shark_4.jpg"]
       },
     ],
-    time_to_visits: [
-        {
-          months: "May - September:",
-          reason: "The best time for safaris, as wildlife gathers around water sources and the vegetation is less dense, making spotting animals easier.",
-        },
-        {
-          months: "November - March:",
-          reason: "Ideal for beach holidays, wine country tours, and exploring Cape Town in its warmest months.",
-        },
-        {
-          months: "July - November:",
-          reason: "Best for whale watching along the coast, especially in Hermanus.",
-        },
-      ],
   },
   {
     id: 6,
@@ -326,16 +270,6 @@ export const destinations: Destination[] = [
         title: "Central Kalahari Game Reserve – A Remote Wilderness Escape",
         description: "The Central Kalahari, one of Africa’s most remote reserves, offers a raw and untouched safari experience. Spot black-maned Kalahari lions, cheetahs, and elusive brown hyenas in this vast desert wilderness, perfect for those seeking solitude and adventure.",
         image:["/Exp/BT/bt_kalahari_1.jpg","/Exp/BT/bt_kalahari_2.jpg", "/Exp/BT/bt_kalahari_3.jpg", "/Exp/BT/bt_kalahari_4.jpg"]
-      },
-    ],
-    time_to_visits: [
-      {
-        months: "May - October:",
-        reason: "The dry season offers the best wildlife viewing, as animals gather around water sources, and the landscapes are more open.",
-      },
-      {
-        months: "November - April:",
-        reason: "The wet season brings lush scenery, dramatic skies, and the arrival of migratory birds, making it perfect for birdwatching and experiencing the zebra migration in Makgadikgadi.",
       },
     ],
   },
@@ -383,16 +317,6 @@ export const destinations: Destination[] = [
         image:["/Exp/VF/vf_livingstone_1.jpg","/Exp/VF/vf_livingstone_2.jpg", "/Exp/VF/vf_livingstone_3.jpg", "/Exp/VF/vf_livingstone_4.jpg"]
       },
     ],
-    time_to_visits: [
-      {
-        months: "May - October:",
-        reason: "Best visibility of the falls with lower water levels, ideal for adventure activities like white-water rafting and Devil’s Pool.",
-      },
-      {
-        months: "November - April:",
-        reason: "Peak water flow, creating dramatic mist and powerful cascades, perfect for witnessing the falls at their most intense.",
-      },
-    ],
   },
   {
     id: 8,
@@ -436,16 +360,6 @@ export const destinations: Destination[] = [
         title: "Kayaking with Seals",
         description: "Paddle alongside playful Cape fur seals in Walvis Bay. Enjoy close encounters with marine life in calm, scenic waters.",
         image:["/Exp/NB/nb_kayaking_1.jpg","/Exp/NB/nb_kayaking_2.jpg", "/Exp/NB/nb_kayaking_3.jpg", "/Exp/NB/nb_kayaking_4.jpg"]
-      },
-    ],
-    time_to_visits: [
-      {
-        months: "May - October:",
-        reason: "Optimal for wildlife and pleasant temperatures.",
-      },
-      {
-        months: "November - April:",
-        reason: "Greener scenery and excellent birdwatching.",
       },
     ],
   },
@@ -498,16 +412,6 @@ export const destinations: Destination[] = [
         image:["/Exp/MA/ma_snorkeling_1.jpg","/Exp/MA/ma_snorkeling_2.jpg", "/Exp/MA/ma_snorkeling_3.jpg", "/Exp/MA/ma_snorkeling_4.jpg"]
       },
     ],
-    time_to_visits: [
-      {
-        months: "May - December:",
-        reason: "Cool, dry, and sunny—ideal for beach vacations, hiking, and sightseeing.",
-      },
-      {
-        months: "January - April:",
-        reason: "Warmer, with occasional tropical showers, but excellent for diving and snorkeling due to calm waters.",
-      },
-    ],
   },
   {
     id: 10,
@@ -551,16 +455,6 @@ export const destinations: Destination[] = [
         title: "Snorkeling & Diving – A Marine Paradise",
         description: "Explore vibrant coral reefs, tropical fish, and seasonal whale sharks at top sites like Sainte Anne Marine Park and Silhouette Island.",
         image:["/Exp/SE/se_snorkeling_1.jpg","/Exp/SE/se_snorkeling_2.jpg", "/Exp/SE/se_snorkeling_3.jpg", "/Exp/SE/se_snorkeling_4.jpg"]
-      },
-    ],
-    time_to_visits: [
-      {
-        months: "April - May & October - November:",
-        reason: "Best for diving, snorkeling, and island hopping due to calm seas and clear waters.",
-      },
-      {
-        months: "June - September:",
-        reason: "Cooler, drier weather, ideal for hiking and beach relaxation, though trade winds may bring stronger waves.",
       },
     ],
   },
@@ -611,16 +505,6 @@ export const destinations: Destination[] = [
         title: "Masoala National Park",
         description: "Adventure through remote rainforests and untouched beaches. Discover coral reefs, exotic birds, and rich biodiversity.",
         image:["/Exp/MD/md_masoala_1.jpg","/Exp/MD/md_masoala_2.jpg", "/Exp/MD/md_masoala_3.jpg", "/Exp/MD/md_masoala_4.jpg"]
-      },
-    ],
-    time_to_visits: [
-      {
-        months: "April - December:",
-        reason: "Best for dry weather, wildlife spotting, and beach holidays.",
-      },
-      {
-        months: "July - September:",
-        reason: "Ideal for whale watching in coastal regions.",
       },
     ],
   },

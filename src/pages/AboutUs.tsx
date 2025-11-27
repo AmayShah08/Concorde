@@ -9,15 +9,18 @@ const AboutUs = (): JSX.Element => {
             <NavBar />
 
             {/* About Us Content */}
-            <section className="py-20 w-full bg-neutral-50">
-                <div className="max-w-[1280px] mx-60 px-4 pt-12">
+            <section className="py-20 w-full bg-neutral-50 pt-28">
+                <figure className="float-left mr-6 mb-4 w-[600px]">
                     {/* Image Aligned to the left */}
                         <img
                             src="/Concorde.png"
                             alt="About Us"
-                            className="float-left mr-6 mb-4 w-[600px] h-auto rounded-lg shadow-md"
+                            className="w-full h-auto rounded-lg shadow-md"
                         />
-                    </div>
+                        <figcaption className="mt-2 text-sm text-neutral-600 italic">
+                            Our vehicles on the fore of Concorde's maiden flight in 1975
+                        </figcaption>
+                    </figure>
 
                     {/* Content Section */}
                     <h2 className="text-4xl font-bold mb-4 text-center mx-60">About Concorde Car Hire & Safaris</h2>
@@ -31,7 +34,7 @@ const AboutUs = (): JSX.Element => {
                     </p>
                     <p className="text-lg text-neutral-700 leading-8 mt-4 text-justify mx-60">
                         In the mid-90s, growing demand from our car hire clientele sparked the natural evolution
-                        into Concorde Safaris. Two decades later, we’ve become a trusted Destination Management
+                        into Concorde Safaris. Three decades later, we’ve become a trusted Destination Management
                         Company, known for crafting tailor-made African experiences that reflect each traveler’s
                         unique interests and dreams. From solo adventurers and families to university groups, NGO
                         teams, and diplomatic staff, we curate everything from classic Big Five safaris to immersive

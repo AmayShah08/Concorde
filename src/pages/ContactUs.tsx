@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavBar } from "../screens/Frame/sections/HeroSection/NavBar";
 import { FooterSection } from "../screens/Frame/sections/FooterSection/FooterSection";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Bold } from "lucide-react";
 
 const ContactUs = (): JSX.Element => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,9 +36,11 @@ const ContactUs = (): JSX.Element => {
                             <h3 className="text-xl font-bold">Safari & Travel</h3>
                             <p className="text-gray-700">
                                 2nd Floor, Westlands Square Office<br />
-                                Next to Sheel Petrol Station<br />
+                                Next to Shell Petrol Station<br />
                                 P.o. Box 48829-00100<br />
                                 Nairobi, Kenya<br />
+                                Office Hours: Mon-Fri: 9:00 AM - 5:00 PM<br />
+                                Sat, Sun & Public Holidays: <strong>Closed</strong>
                             </p>
                             <MapContainer
                                 className="h-64 w-90 rounded-lg shadow-md z-0"
@@ -68,7 +71,7 @@ const ContactUs = (): JSX.Element => {
                             <p className="text-gray-700">
                                 St. Austin Shell in Lavington<br />
                                 P.O. Box 25053-00603<br />
-                                Nairobi, Kenya<br />
+                                Nairobi, Kenya<br /> < br /><br />
                             </p>
                             <MapContainer
                                 className="h-64 w-90 rounded-lg shadow-md mt-6 z-0"

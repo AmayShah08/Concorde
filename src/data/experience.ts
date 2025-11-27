@@ -16,11 +16,11 @@ export const experiences: Experience[] = [
     subHeading: "Walk Among Giants",
     description: "Step away from the safari vehicle and experience the wilderness on foot. Guided by Maasai trackers and naturalists, every footprint, bird call, and rustle in the grass tells a story. It’s the most authentic way to reconnect with the rhythms of nature.",
     images: [
-      "/Exp/Wonder/karisa_walking_safari_1.webp",
-      "/Exp/Wonder/karisa_walking_safari_2.webp",
-      "/Exp/Wonder/karisa_walking_safari_3.webp",
-      "/Exp/Wonder/karisa_walking_safari_4.webp",
-      "/Exp/Wonder/karisa_walking_safari_5.webp",
+      "/Exp/Wonder/safari1.webp",
+      "/Exp/Wonder/safari2.webp",
+      "/Exp/Wonder/safari3.webp",
+      "/Exp/Wonder/safari4.webp",
+      "/Exp/Wonder/safari5.webp",
     ],
     link: "/experience/safari",
     highlights: [
@@ -119,7 +119,7 @@ export const experiences: Experience[] = [
       "/Exp/Wonder/mt3.jpg",
       "/Exp/Wonder/mt4.jpg",
     ],
-    link: "/experience/culture",
+    link: "/experience/mountains",
     highlights: [
       "Mt. Kenya: jagged peaks, alpine lakes, and diverse ecosystems",
       "Mt. Kilimanjaro: the world’s tallest freestanding mountain",

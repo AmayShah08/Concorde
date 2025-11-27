@@ -123,15 +123,6 @@ const DestinationDetails = (): JSX.Element => {
           ))}
         </div>
 
-        <h2 className="text-2xl font-semibold mb-4 mt-8">Best Time to Visit</h2>
-        <ul className="list-disc list-inside">
-          {destination.time_to_visits.map((time_to_visit, index) => (
-            <li key={index}>
-              <span className="font-bold">{time_to_visit.months}</span> {time_to_visit.reason}
-            </li>
-          ))}
-        </ul>
-
         {/* Make an Inquiry Button */}
         <div className="mt-8 text-center">
           <button

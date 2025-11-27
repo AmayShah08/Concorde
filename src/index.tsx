@@ -18,6 +18,10 @@ const DestinationDetails = lazy(() =>
   import("./screens/Frame/sections/PopularDestinationsSection/DestinationDetails")
 );
 
+const ExperienceDetails = lazy(() => 
+  import("./screens/Frame/sections/ExperienceSection/ExperienceDetails")
+);
+
 const Travel = lazy(() => import("./pages/Travel"));
 const CarHire = lazy(() => import("./pages/CarHire"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
@@ -37,6 +41,8 @@ createRoot(document.getElementById("app") as HTMLElement).render(
           {/* Dynamic Routes (Now code-split) */}
           <Route path="/destinations" element={<PopularDestinationsSection />} />
           <Route path="/destination/:name" element={<DestinationDetails />} />
+
+          <Route path="/experience/:name" element={<ExperienceDetails />} />
 
           {/* Other Dynamic Pages */}
           <Route path="/travel" element={<Travel />} />

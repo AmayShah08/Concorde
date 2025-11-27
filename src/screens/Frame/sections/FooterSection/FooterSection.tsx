@@ -12,7 +12,7 @@ import React from "react";
 export const FooterSection = (): JSX.Element => {
   // Contact information data
   const contactInfo = [
-    { icon: <PhoneIcon className="h-4 w-4" />, text: ( <>Safaris: +254 20 3743304 <br /> Car Hire: +254 20 4448953/4 </> ) },
+    { icon: <PhoneIcon className="h-4 w-4" />, text: ( <>Safaris: +254 20 3743304 <br /> Car Hire: +254 700 987 654 </> ) },
     { icon: <MailIcon className="h-4 w-4" />, text: ( <>Safaris: safaris@concorde.co.ke <br /> Car Hire: carhire@concorde.co.ke <br /> Flights: tours@concorde.co.ke</>) },
     { icon: <MapPinIcon className="h-4 w-4" />, text: "2nd Floor, Westlands Square Office, Westlands" },
   ];
