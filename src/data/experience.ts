@@ -41,11 +41,10 @@ export const experiences: Experience[] = [
     subHeading: "Pedal Through Paradise",
     description: "Discover Zanzibar at your own pace — on two wheels. Cycle past spice farms, along palm-fringed beaches, and through the winding streets of Stone Town. It’s a vibrant blend of adventure, culture, and island charm.",
     images: [
-      "/experience/beach1.jpg",
-      "/experience/beach2.jpg",
-      "/experience/beach3.jpg",
-      "/experience/beach4.jpg",
-      "/experience/beach5.jpg",
+      "/Exp/Wonder/cycling1.jpg",
+      "/Exp/Wonder/cycling2.jpg",
+      "/Exp/Wonder/cycling3.jpg",
+      "/Exp/Wonder/cycling4.jpg",
     ],
     link: "/experience/cycling",
     highlights: [
@@ -91,11 +90,10 @@ export const experiences: Experience[] = [
     subHeading: "Sail Beyond Horizons",
     description: "From African river journeys to worldwide ocean voyages, luxury cruises combine adventure with indulgence. With Concorde Safaris, you’ll enjoy curated itineraries, world-class service, and seamless pre- and post-cruise safari extensions.",
     images: [
-      "/experience/city1.jpg",
-      "/experience/city2.jpg",
-      "/experience/city3.jpg",
-      "/experience/city4.jpg",
-      "/experience/city5.jpg",
+      "/Exp/Wonder/cruise1.jpg",
+      "/Exp/Wonder/cruise2.jpg",
+      "/Exp/Wonder/cruise3.jpg",
+      "/Exp/Wonder/cruise4.jpg",
     ],
     link: "/experience/cruise",
     highlights: [
@@ -116,11 +114,10 @@ export const experiences: Experience[] = [
     subHeading: "Conquer Africa’s Legendary Peaks",
     description: "Stand tall on the rooftops of Africa. From the rugged beauty of Mt. Kenya to the snow-capped majesty of Mt. Kilimanjaro, these iconic hikes promise adventure, breathtaking landscapes, and the triumph of reaching the summit.",
     images: [
-      "/experience/culture1.jpg",
-      "/experience/culture2.jpg",
-      "/experience/culture3.jpg",
-      "/experience/culture4.jpg",
-      "/experience/culture5.jpg",
+      "/Exp/Wonder/mt1.jpg",
+      "/Exp/Wonder/mt2.jpg",
+      "/Exp/Wonder/mt3.jpg",
+      "/Exp/Wonder/mt4.jpg",
     ],
     link: "/experience/culture",
     highlights: [

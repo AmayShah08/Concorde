@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 // Example card data
 const cards = [
   { title: "Walk Among Giants", image: "/Exp/Wonder/karisa_walking_safari_1.webp", link: "/experience/safari" },
-  { title: "Cycling Around Zanzibar", image: "/experience/beach.jpg", link: "/experience/beach" },
+  { title: "Cycling Around Zanzibar", image: "/Exp/Wonder/cycling1.jpg", link: "/experience/beach" },
   { title: "Ride with the Wild", image: "/Exp/Wonder/horseback2.jpg", link: "/experience/mountain" },
-  { title: "Luxury Cruises", image: "/experience/city.jpg", link: "/experience/city" },
-  { title: "Mt. Kenya and Kilimanjaro Hiking", image: "/experience/culture.jpg", link: "/experience/culture" },
+  { title: "Luxury Cruises", image: "/Exp/Wonder/cruise1.jpg", link: "/experience/city" },
+  { title: "Mt. Kenya and Kilimanjaro Hiking", image: "/Exp/Wonder/mt1.jpg", link: "/experience/culture" },
   { title: "Journey Back in Time", image: "/Exp/Wonder/camel4.webp", link: "/experience/wildlife" },
 ];
 
