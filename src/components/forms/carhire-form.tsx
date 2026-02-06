@@ -75,29 +75,6 @@ export const CarHireForm = (): JSX.Element => {
           />
         </div>
 
-        {/* Preferred Vehicle Class in Two Columns */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Preferred Vehicle Class
-          </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-            {["A", "B", "C", "D", "E"].map((v) => (
-              <label key={v} className="flex items-center gap-x-2">
-                <input
-                  type="radio"
-                  name="vehicleClass"
-                  value={v}
-                  checked={formData.vehicleClass === v}
-                  onChange={handleChange}
-                  required
-                  className="text-blue-500 focus:ring-blue-500"
-                />
-                <span className="text-gray-700">{v}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
         {/* Do You Need a Driver? Side by Side */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
@@ -142,7 +119,6 @@ export const CarHireForm = (): JSX.Element => {
         <input type="hidden" name="Full Name" value={formData.fullName} />
         <input type="hidden" name="Email Address" value={formData.email} />
         <input type="hidden" name="Number of Pax" value={formData.pax} />
-        <input type="hidden" name="Preferred Vehicle Class" value={formData.vehicleClass} />
         <input type="hidden" name="Need Driver" value={formData.needDriver} />
         <input type="hidden" name="Number of Days" value={formData.days} />
 
