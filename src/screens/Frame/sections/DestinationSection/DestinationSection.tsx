@@ -1,102 +1,111 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Button } from "../../../../components/ui/button";
-import { destinations } from "../../../../data/rolodex"; // Import destinations
+import { destinations } from "../../../../data/rolodex";
 
 export const DestinationSection = (): JSX.Element => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
+  // Use loop and duration for smoother transitions
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    duration: 30 
+  }, [
+    Autoplay({ delay: 6000, stopOnInteraction: false }),
   ]);
-  const [selectedIndex, setSelectedIndex] = useState(0); // Track the active slide index
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]); // Store slide positions
 
-  // Update the active slide index when the carousel changes
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
-  // Initialize the carousel and set up event listeners
   useEffect(() => {
     if (!emblaApi) return;
     setScrollSnaps(emblaApi.scrollSnapList());
     emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
   }, [emblaApi, onSelect]);
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <section className="relative w-full h-[80vh] pt-30">
-      {/* Static Text Content */}
-      <div className="absolute inset-x-0 top-24 z-10 py-8">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <div className="flex flex-col items-center justify-center text-center">
-            <h2 className="text-4xl md:text-5xl font-medium font-['Roboto',Helvetica] tracking-normal mb-4 md:mb-8 text-white drop-shadow-lg">
-              Your Next Destination Awaits
-            </h2>
-          </div>
-        </div>
-      </div>
-
-      {/* Carousel */}
-      <div className="overflow-hidden h-full" ref={emblaRef}>
-        <div className="flex h-full touch-pan-y">
-          {destinations.map((destination) => (
+    <section className="relative w-full h-[85vh] overflow-hidden group">
+      {/* Carousel Container */}
+      <div className="h-full cursor-grab active:cursor-grabbing" ref={emblaRef}>
+        <div className="flex h-full">
+          {destinations.map((destination, index) => (
             <div
               key={destination.id}
-              className="flex-[0_0_100%] min-w-0 relative h-full"
+              className="flex-[0_0_100%] min-w-0 relative h-full overflow-hidden"
             >
-              {/* Background Image */}
+              {/* Animated Background Image */}
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className={`absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] ease-out ${
+                  index === selectedIndex ? "scale-110" : "scale-100"
+                }`}
                 style={{ backgroundImage: `url(${destination.image})` }}
               >
-                <div className="absolute inset-0 bg-black bg-opacity-40" />
+                {/* Gradient Overlay for better text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70" />
               </div>
 
-              {/* Title and Description */}
-              <div className="absolute left-20 top-[80%] -translate-y-1/2 z-20 text-white bg-gray-200 bg-opacity-50 border border-white p-4 rounded-md w-[300px] break-words">
-                <h3 className="text-xl font-semibold">{destination.title}</h3>
-                <p className="text-sm">{destination.description}</p>
+              {/* Central Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
+                <div className={`transition-all duration-1000 delay-300 transform ${
+                  index === selectedIndex ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}>
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-widest mb-6">
+                        <MapPin size={14} className="text-blue-400" /> Discover Africa
+                    </span>
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 drop-shadow-2xl">
+                        {destination.title}
+                    </h2>
+                    <p className="max-w-xl text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow-lg font-light">
+                        {destination.description}
+                    </p>
+                    <div className="mt-10">
+                        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-full text-lg font-semibold transition-all hover:scale-105 active:scale-95 shadow-xl">
+                            Explore Destination
+                        </Button>
+                    </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Navigation Buttons */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 z-20"
-        onClick={scrollPrev}
-      >
-        <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 z-20"
-        onClick={scrollNext}
-      >
-        <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
-      </Button>
+      {/* Side Navigation - Hidden on mobile, shown on group hover on desktop */}
+      <div className="hidden md:block">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute left-8 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full transition-all opacity-0 group-hover:opacity-100"
+          onClick={scrollPrev}
+        >
+          <ChevronLeft className="h-8 w-8" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-8 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-full transition-all opacity-0 group-hover:opacity-100"
+          onClick={scrollNext}
+        >
+          <ChevronRight className="h-8 w-8" />
+        </Button>
+      </div>
 
-      {/* Dots Navigation */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+      {/* Progress Indicators (Dots) */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30">
         {scrollSnaps.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full ${
-              index === selectedIndex ? "bg-blue-500" : "bg-gray-300"
+            className={`transition-all duration-500 rounded-full h-1.5 ${
+              index === selectedIndex ? "w-10 bg-blue-500" : "w-2 bg-white/40 hover:bg-white/60"
             }`}
             onClick={() => emblaApi?.scrollTo(index)}
           />

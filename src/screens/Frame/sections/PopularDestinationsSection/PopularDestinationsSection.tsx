@@ -5,7 +5,6 @@ import { destinations } from "../../../../data/destinations";
 const PopularDestinationsSection = (): JSX.Element => {
   const navigate = useNavigate();
 
-  // Group destinations by category
   const groupedDestinations = destinations.reduce((acc, destination) => {
     if (!acc[destination.category]) {
       acc[destination.category] = [];
@@ -16,11 +15,8 @@ const PopularDestinationsSection = (): JSX.Element => {
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Flatten categories for dot navigation
   const categories = Object.keys(groupedDestinations);
 
-  // Scroll to category index
   const scrollToCategory = (idx: number) => {
     if (scrollContainerRef.current) {
       const categoryDivs = scrollContainerRef.current.querySelectorAll(".category-section");
@@ -30,15 +26,16 @@ const PopularDestinationsSection = (): JSX.Element => {
     }
   };
 
-  // Track active category based on scroll position
   useEffect(() => {
     const handleScroll = () => {
       if (scrollContainerRef.current) {
         const categoryDivs = scrollContainerRef.current.querySelectorAll(".category-section");
         let foundIdx = 0;
+        const containerLeft = scrollContainerRef.current.getBoundingClientRect().left;
+        
         for (let i = 0; i < categoryDivs.length; i++) {
           const rect = (categoryDivs[i] as HTMLElement).getBoundingClientRect();
-          if (rect.left >= scrollContainerRef.current.getBoundingClientRect().left - 10) {
+          if (rect.left >= containerLeft - 50) {
             foundIdx = i;
             break;
           }
@@ -46,47 +43,52 @@ const PopularDestinationsSection = (): JSX.Element => {
         setActiveIndex(foundIdx);
       }
     };
+    
     const ref = scrollContainerRef.current;
     if (ref) {
-      ref.addEventListener("scroll", handleScroll);
+      ref.addEventListener("scroll", handleScroll, { passive: true });
       return () => ref.removeEventListener("scroll", handleScroll);
     }
   }, []);
 
   return (
-    <section className="w-full bg-gray-100 py-12">
+    <section className="w-full bg-gray-100 py-10 md:py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-semibold mb-6 text-center">Popular Destinations</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-neutral-800">
+          Popular Destinations
+        </h2>
 
-        {/* Single Scrollable Section */}
         <div className="relative">
-          {/* Scrollable Container */}
+          {/* Responsive changes:
+              1. Changed padding (px-2 on mobile vs px-8 on desktop)
+              2. Added snap-x and snap-mandatory for "magnetic" scrolling
+          */}
           <div
             ref={scrollContainerRef}
-            className="flex space-x-8 overflow-x-auto overflow-y-hidden scrollbar-hide px-8 scroll-snap-x scroll-snap-mandatory will-change-transform"
+            className="flex space-x-6 md:space-x-12 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory touch-pan-x"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {Object.entries(groupedDestinations).map(([category, destinations], idx) => (
-              <div key={category} className="flex-shrink-0 scroll-snap-align-start category-section">
-                {/* Category Title */}
-                <h3 className="text-xl font-semibold mb-4">{category}</h3>
+            {Object.entries(groupedDestinations).map(([category, categoryDestinations]) => (
+              <div key={category} className="flex-shrink-0 snap-start category-section w-[85vw] md:w-auto">
+                <h3 className="text-lg md:text-xl font-semibold mb-4 text-neutral-700">{category}</h3>
 
-                {/* Destinations */}
                 <div className="flex space-x-4">
-                  {destinations.map((destination) => (
+                  {categoryDestinations.map((destination) => (
                     <div
                       key={destination.id}
-                      className="min-w-[300px] bg-white shadow-md rounded-md cursor-pointer hover:shadow-lg transition-shadow scroll-snap-align-start"
-                      onClick={() =>
-                        navigate(`/destination/${encodeURIComponent(destination.name)}`)
-                      }
+                      className="w-[260px] md:min-w-[300px] bg-white shadow-sm rounded-xl overflow-hidden cursor-pointer hover:shadow-md transition-all snap-center"
+                      onClick={() => navigate(`/destination/${encodeURIComponent(destination.name)}`)}
                     >
-                      <img
-                        src={destination.image}
-                        alt={destination.name}
-                        className="w-full h-48 object-cover rounded-t-md"
-                      />
+                      <div className="relative h-40 md:h-48 overflow-hidden">
+                        <img
+                          src={destination.image}
+                          alt={destination.name}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        />
+                      </div>
                       <div className="p-4">
-                        <h3 className="text-lg font-medium">{destination.name}</h3>
+                        <h4 className="text-base md:text-lg font-medium text-neutral-800">{destination.name}</h4>
+                        <p className="text-sm text-blue-600 mt-1 font-semibold">View Details →</p>
                       </div>
                     </div>
                   ))}
@@ -95,22 +97,15 @@ const PopularDestinationsSection = (): JSX.Element => {
             ))}
           </div>
 
-          {/* Dots Navigation */}
-          <div className="flex justify-center mt-6 gap-2">
+          {/* Dots Navigation - Optimized for touch */}
+          <div className="flex justify-center mt-4 gap-3">
             {categories.map((_, idx) => (
               <button
-                type="button"
                 key={idx}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  idx === activeIndex ? "bg-blue-600" : "bg-gray-300"
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === activeIndex ? "w-8 bg-blue-600" : "w-2 bg-gray-300"
                 }`}
-                onClick={e => {
-                  e.preventDefault(); // Prevent default scroll/focus
-                  e.stopPropagation(); // Prevent bubbling
-                  scrollToCategory(idx);
-                  setActiveIndex(idx);
-                }}
-                tabIndex={0}
+                onClick={() => scrollToCategory(idx)}
                 aria-label={`Go to ${categories[idx]}`}
               />
             ))}

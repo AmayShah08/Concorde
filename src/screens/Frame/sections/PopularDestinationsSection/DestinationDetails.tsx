@@ -5,170 +5,176 @@ import { FooterSection } from "../FooterSection/FooterSection";
 import { NavBar } from "../HeroSection/NavBar";
 import { SafariForm } from "../../../../components/forms/safari-form";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { X, ChevronDown, ChevronUp } from "lucide-react"; // Better icons for mobile
 
 const FitBounds = ({ bounds }: { bounds: [[number, number], [number, number]] }) => {
   const map = useMap();
-
   useEffect(() => {
     if (bounds) {
-      map.fitBounds(bounds);
+      map.fitBounds(bounds, { padding: [20, 20] }); // Added padding for better mobile framing
     }
   }, [bounds, map]);
-
   return null;
 };
 
 const DestinationDetails = (): JSX.Element => {
   const { name } = useParams<{ name: string }>();
-  const decodedName = decodeURIComponent(name || ""); // Decode name from the URL
+  const decodedName = decodeURIComponent(name || "");
   const destination = destinations.find((dest) => dest.name === decodedName);
 
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
-  const [selectedImage, setSelectedImage] = useState<string | null>(null); // State for selected image
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   if (!destination) {
-    return <div className="text-center text-red-500">Destination not found!</div>;
+    return <div className="text-center text-red-500 py-20">Destination not found!</div>;
   }
 
   const toggleCollapse = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  const openImageModal = (image: string) => setSelectedImage(image); // Open image modal
-  const closeImageModal = () => setSelectedImage(null); // Close image modal
-
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navigation Bar */}
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <NavBar />
-      <div className="container mx-auto px-4 py-12 flex-grow pt-24">
-        {/* Hero Banner */}
+      
+      <main className="flex-grow pt-16 md:pt-24">
+        {/* Hero Banner - Responsive Height */}
         <div
-          className="relative w-full h-64 bg-cover bg-center rounded-lg mb-6"
+          className="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 bg-cover bg-center mb-6"
           style={{ backgroundImage: `url(${destination.image})` }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg" />
-          <h1 className="absolute inset-x-0 bottom-4 text-center text-white text-4xl font-bold">
-            {destination.name}
-          </h1>
-        </div>
-
-        {/* Map and Overview Section */}
-        <div className="flex flex-col lg:flex-row gap-6 mb-8">
-          {/* Map Section */}
-          <div className="w-full lg:w-1/2 h-96">
-            <MapContainer
-              className="h-full w-full rounded-lg shadow-md z-0"
-              center={[destination.latitude, destination.longitude]} // Fallback center
-              zoom={6} // Fallback zoom
-              scrollWheelZoom={false}
-            >
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              />
-              <FitBounds
-                bounds={[
-                  [destination.bounds.southWest[0], destination.bounds.southWest[1]],
-                  [destination.bounds.northEast[0], destination.bounds.northEast[1]],
-                ]}
-              />
-              <Marker position={[destination.latitude, destination.longitude]}>
-                <Popup>{destination.name}</Popup>
-              </Marker>
-            </MapContainer>
-          </div>
-
-          {/* Overview Section */}
-          <div className="w-full lg:w-1/2">
-            <p className="text-lg text-gray-700 text-justify">{destination.overview}</p>
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 flex items-center justify-center px-4">
+             <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold text-center drop-shadow-lg">
+                {destination.name}
+             </h1>
           </div>
         </div>
 
-        <h2 className="text-2xl font-semibold mb-4">Top Experiences</h2>
-        <div className="space-y-4">
-          {destination.top_experiences.map((experience, index) => (
-            <div key={index} className="border border-gray-300 rounded-md">
-              {/* Collapsible Header */}
-              <button
-                className="w-full flex justify-between items-center bg-gray-100 px-4 py-2 text-left text-lg font-medium text-gray-700 hover:bg-gray-200"
-                onClick={() => toggleCollapse(index)}
+        <div className="container mx-auto px-4 pb-12">
+          {/* Map and Overview Section - Stacked on Mobile, Side-by-Side on Desktop */}
+          <div className="flex flex-col lg:flex-row gap-8 mb-12">
+            {/* Map Section - Fixed aspect ratio for mobile */}
+            <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-[450px] relative z-0">
+              <MapContainer
+                className="h-full w-full rounded-xl shadow-lg"
+                center={[destination.latitude, destination.longitude]}
+                zoom={6}
+                scrollWheelZoom={false}
               >
-                <span>{experience.title}</span>
-                <span>{expandedIndex === index ? "-" : "+"}</span>
-              </button>
-
-              {/* Collapsible Content */}
-              {expandedIndex === index && (
-                <div className="p-4 bg-white">
-                  <p className="text-gray-700 mb-4">{experience.description}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {experience.image.map((img, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        src={img}
-                        alt={`${experience.title} - ${imgIndex + 1}`}
-                        className="w-full h-48 object-cover rounded-md cursor-pointer"
-                        onClick={() => openImageModal(img)} // Open modal on click
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution='&copy; OpenStreetMap'
+                />
+                <FitBounds
+                  bounds={[
+                    [destination.bounds.southWest[0], destination.bounds.southWest[1]],
+                    [destination.bounds.northEast[0], destination.bounds.northEast[1]],
+                  ]}
+                />
+                <Marker position={[destination.latitude, destination.longitude]}>
+                  <Popup>{destination.name}</Popup>
+                </Marker>
+              </MapContainer>
             </div>
-          ))}
-        </div>
 
-        {/* Make an Inquiry Button */}
-        <div className="mt-8 text-center">
-          <button
-            onClick={openModal}
-            className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600"
-          >
-            Make an Inquiry
-          </button>
-        </div>
-      </div>
+            {/* Overview Section */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center">
+              <h2 className="text-2xl font-bold mb-4 text-neutral-800">About {destination.name}</h2>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                {destination.overview}
+              </p>
+              <div className="mt-6">
+                 <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full md:w-auto bg-blue-600 text-white py-3 px-8 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md"
+                  >
+                    Make an Inquiry
+                  </button>
+              </div>
+            </div>
+          </div>
 
-      {/* Modal for SafariForm */}
+          {/* Top Experiences Section */}
+          <section className="mt-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-neutral-800 border-b pb-2">
+              Top Experiences
+            </h2>
+            <div className="space-y-4">
+              {destination.top_experiences.map((experience, index) => (
+                <div key={index} className="border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-white">
+                  <button
+                    className={`w-full flex justify-between items-center px-5 py-4 text-left transition-colors ${
+                      expandedIndex === index ? "bg-blue-50" : "hover:bg-gray-50"
+                    }`}
+                    onClick={() => toggleCollapse(index)}
+                  >
+                    <span className="text-lg font-semibold text-neutral-700">{experience.title}</span>
+                    {expandedIndex === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                  </button>
+
+                  {expandedIndex === index && (
+                    <div className="p-5 border-t border-gray-100 animate-in fade-in slide-in-from-top-2 duration-300">
+                      <p className="text-gray-600 mb-6 leading-relaxed">{experience.description}</p>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                        {experience.image.map((img, imgIndex) => (
+                          <div 
+                            key={imgIndex} 
+                            className="aspect-square rounded-lg overflow-hidden cursor-pointer group"
+                            onClick={() => setSelectedImage(img)}
+                          >
+                            <img
+                              src={img}
+                              alt={`${experience.title} ${imgIndex + 1}`}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </main>
+
+      {/* Inquiry Modal - Fully Responsive Overlay */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative">
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-            >
-              ✕
-            </button>
-            <SafariForm />
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg relative max-h-[90vh] flex flex-col">
+            <div className="flex justify-between items-center p-4 border-b">
+              <h3 className="text-xl font-bold">Inquiry Form</h3>
+              <button onClick={() => setIsModalOpen(false)} className="p-1 hover:bg-gray-100 rounded-full transition-colors">
+                <X size={24} />
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto">
+              <SafariForm />
+            </div>
           </div>
         </div>
       )}
 
-      {/* Modal for Enlarged Image */}
+      {/* Image Lightbox */}
       {selectedImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-          <div className="relative">
-            <button
-              onClick={closeImageModal}
-              className="absolute top-2 right-2 text-white text-2xl font-bold"
-            >
-              ✕
-            </button>
-            <img
-              src={selectedImage}
-              alt="Enlarged"
-              className="max-w-full max-h-screen rounded-lg shadow-lg"
-            />
-          </div>
+        <div 
+          className="fixed inset-0 z-[110] flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button className="absolute top-6 right-6 text-white p-2">
+            <X size={32} />
+          </button>
+          <img
+            src={selectedImage}
+            alt="Enlarged view"
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+          />
         </div>
       )}
 
-      {/* Footer */}
       <FooterSection />
     </div>
   );

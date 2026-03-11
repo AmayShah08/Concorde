@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+import { User, Mail, Users, Car, Calendar, Navigation } from "lucide-react";
 
 export const CarHireForm = (): JSX.Element => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    pax: "",
-    vehicleClass: "",
-    needDriver: "",
-    days: "",
+    pax: "1",
+    vehicleClass: "4x4 Safari Land Cruiser",
+    needDriver: "Yes",
+    startDate: "",
+    endDate: "",
+    message: ""
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -18,116 +21,169 @@ export const CarHireForm = (): JSX.Element => {
     }));
   };
 
-  return (
-    <div className="max-w-4xl mx-auto p-4">
-      <form
-        action="https://formsubmit.co/carhire@concorde.co.ke" // <-- your recipient email
-        method="POST"
-        className="space-y-4 bg-white p-6 rounded-lg shadow-md overflow-y-auto max-h-[90vh]"
-      >
-        <h3 className="text-xl font-semibold">Car Hire Inquiry</h3>
+  const today = new Date().toISOString().split("T")[0];
 
-        {/* Name and Email Side by Side */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Full Name
+  return (
+    <div className="w-full max-w-2xl mx-auto">
+      <form
+        action="https://formsubmit.co/carhire@concorde.co.ke"
+        method="POST"
+        className="space-y-6 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100"
+      >
+        {/* FormSubmit Configuration */}
+        <input type="hidden" name="_subject" value={`Car Hire Inquiry: ${formData.fullName}`} />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        {/* Optional: <input type="hidden" name="_next" value="https://yourdomain.com/thanks" /> */}
+
+        <div className="border-b pb-4">
+          <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+            <Car className="text-blue-600" /> Car Hire Details
+          </h3>
+        </div>
+
+        {/* Name & Email */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
+              <User size={14} /> Full Name
             </label>
             <input
               type="text"
               name="fullName"
+              required
               value={formData.fullName}
               onChange={handleChange}
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your full name"
+              className="w-full p-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+              placeholder="Jane Doe"
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email Address
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
+              <Mail size={14} /> Email
             </label>
             <input
               type="email"
               name="email"
+              required
               value={formData.email}
               onChange={handleChange}
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your email"
+              className="w-full p-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+              placeholder="jane@example.com"
             />
           </div>
         </div>
 
-        {/* Number of Pax */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Number of Pax
-          </label>
-          <input
-            type="number"
-            name="pax"
-            value={formData.pax}
-            onChange={handleChange}
-            required
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Enter number of passengers"
-          />
+        {/* Vehicle Class & Pax */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
+              <Car size={14} /> Vehicle Class
+            </label>
+            <select
+              name="vehicleClass"
+              value={formData.vehicleClass}
+              onChange={handleChange}
+              className="w-full p-3 rounded-xl border border-gray-200 bg-white focus:border-blue-500 outline-none"
+            >
+              <option>4x4 Safari Land Cruiser</option>
+              <option>SUV (Rav4/Prado)</option>
+              <option>Safari Van</option>
+              <option>Saloon Car</option>
+              <option>Luxury Sedan</option>
+            </select>
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
+              <Users size={14} /> Passengers
+            </label>
+            <input
+              type="number"
+              name="pax"
+              min="1"
+              value={formData.pax}
+              onChange={handleChange}
+              className="w-full p-3 rounded-xl border border-gray-200 outline-none"
+            />
+          </div>
         </div>
 
-        {/* Do You Need a Driver? Side by Side */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Do You Need a Driver?
+        {/* Dates */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
+              <Calendar size={14} /> Hire Start
+            </label>
+            <input
+              type="date"
+              name="startDate"
+              min={today}
+              required
+              onChange={handleChange}
+              className="w-full p-3 rounded-xl border border-gray-200 outline-none"
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
+              <Calendar size={14} /> Hire End
+            </label>
+            <input
+              type="date"
+              name="endDate"
+              min={formData.startDate || today}
+              required
+              onChange={handleChange}
+              className="w-full p-3 rounded-xl border border-gray-200 outline-none"
+            />
+          </div>
+        </div>
+
+        {/* Driver Selection - Modern Toggles */}
+        <div className="space-y-2">
+          <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
+            <Navigation size={14} /> Need a Professional Driver?
           </label>
-          <div className="flex items-center gap-4 mt-2">
-            {["Yes", "No"].map((v) => (
-              <label key={v} className="flex items-center gap-x-2">
+          <div className="flex gap-4">
+            {["Yes", "No"].map((choice) => (
+              <label 
+                key={choice}
+                className={`flex-1 text-center p-3 rounded-xl border-2 cursor-pointer transition-all font-bold ${
+                  formData.needDriver === choice 
+                  ? "border-blue-600 bg-blue-50 text-blue-600" 
+                  : "border-gray-100 text-gray-400 hover:border-gray-200"
+                }`}
+              >
                 <input
                   type="radio"
                   name="needDriver"
-                  value={v}
-                  checked={formData.needDriver === v}
+                  value={choice}
+                  checked={formData.needDriver === choice}
                   onChange={handleChange}
-                  required
-                  className="text-blue-500 focus:ring-blue-500"
+                  className="hidden"
                 />
-                <span className="text-gray-700">{v}</span>
+                {choice === "Yes" ? "Chauffeur Driven" : "Self Drive"}
               </label>
             ))}
           </div>
         </div>
 
-        {/* Number of Days */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Number of Days
-          </label>
-          <input
-            type="number"
-            name="days"
-            value={formData.days}
+        {/* Additional Message */}
+        <div className="space-y-1">
+          <label className="text-xs font-bold text-gray-500 uppercase">Special Requirements</label>
+          <textarea
+            name="message"
+            rows={3}
             onChange={handleChange}
-            required
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Enter number of days"
-          />
+            className="w-full p-3 rounded-xl border border-gray-200 outline-none"
+            placeholder="E.g. Baby seat required, Airport pickup..."
+          ></textarea>
         </div>
 
-        {/* Hidden Inputs for Email Subject and Form Data */}
-        <input type="hidden" name="_subject" value="Car Hire Inquiry" />
-        <input type="hidden" name="Full Name" value={formData.fullName} />
-        <input type="hidden" name="Email Address" value={formData.email} />
-        <input type="hidden" name="Number of Pax" value={formData.pax} />
-        <input type="hidden" name="Need Driver" value={formData.needDriver} />
-        <input type="hidden" name="Number of Days" value={formData.days} />
-
-        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+          className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 active:scale-95"
         >
-          Submit Inquiry
+          Check Availability
         </button>
       </form>
     </div>
