@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { User, Mail, Users, Car, Calendar, Navigation } from "lucide-react";
+import { User, Mail, Users, Car, Calendar, Navigation, Phone } from "lucide-react";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import { isValidPhoneNumber } from 'libphonenumber-js';
 
 export const CarHireForm = (): JSX.Element => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
+    phoneNumber: "",
     pax: "1",
     vehicleClass: "4x4 Safari Land Cruiser",
     needDriver: "Yes",
@@ -12,6 +16,7 @@ export const CarHireForm = (): JSX.Element => {
     endDate: "",
     message: ""
   });
+  const [phoneError, setPhoneError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -21,6 +26,13 @@ export const CarHireForm = (): JSX.Element => {
     }));
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    if (phoneError || (formData.phoneNumber && !isValidPhoneNumber(formData.phoneNumber))) {
+      e.preventDefault();
+      alert("Please correct the errors before submitting.");
+    }
+  };
+
   const today = new Date().toISOString().split("T")[0];
 
   return (
@@ -28,6 +40,7 @@ export const CarHireForm = (): JSX.Element => {
       <form
         action="https://formsubmit.co/carhire@concorde.co.ke"
         method="POST"
+        onSubmit={handleSubmit}
         className="space-y-6 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100"
       >
         {/* FormSubmit Configuration */}
@@ -42,8 +55,8 @@ export const CarHireForm = (): JSX.Element => {
           </h3>
         </div>
 
-        {/* Name & Email */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Name, Email & Phone */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-1">
             <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
               <User size={14} /> Full Name
@@ -72,6 +85,28 @@ export const CarHireForm = (): JSX.Element => {
               placeholder="jane@example.com"
             />
           </div>
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-500 uppercase flex items-center gap-1">
+              <Phone size={14} /> Phone Number
+            </label>
+            <PhoneInput
+              international
+              countryCallingCodeEditable={false}
+              defaultCountry="KE"
+              value={formData.phoneNumber}
+              onChange={(value) => {
+                setFormData((prevData) => ({ ...prevData, phoneNumber: value || "" }));
+                if (value && !isValidPhoneNumber(value)) {
+                  setPhoneError("Please enter a valid phone number");
+                } else {
+                  setPhoneError("");
+                }
+              }}
+              className="w-full p-3 rounded-xl border border-gray-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-200 transition-all outline-none"
+              placeholder="Enter phone number"
+            />
+            {phoneError && <p className="text-red-500 text-xs mt-1">{phoneError}</p>}
+          </div>
         </div>
 
         {/* Vehicle Class & Pax */}
@@ -86,11 +121,12 @@ export const CarHireForm = (): JSX.Element => {
               onChange={handleChange}
               className="w-full p-3 rounded-xl border border-gray-200 bg-white focus:border-blue-500 outline-none"
             >
-              <option>4x4 Safari Land Cruiser</option>
-              <option>SUV (Rav4/Prado)</option>
-              <option>Safari Van</option>
-              <option>Saloon Car</option>
-              <option>Luxury Sedan</option>
+              <option>Category D - Toyota Landcruiser</option>
+              <option>Category C - Mitsubishi Pajero</option>
+              <option>Category B - Nissan Xtrail</option>
+              <option>Category A - Mitsubishi iO</option>
+              <option>Safari Landcruiser with Guide</option>
+              <option>Safari Van with Guide</option>
             </select>
           </div>
           <div className="space-y-1">

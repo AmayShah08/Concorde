@@ -32,7 +32,7 @@ export const SafariForm = (): JSX.Element => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <form
-        action="https://formsubmit.co/safaris@concorde.co.ke"
+        action="https://formsubmit.co/safaris.travel@concorde.co.ke"
         method="POST"
         className="space-y-8 bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-gray-100 overflow-y-auto max-h-[85vh] custom-scrollbar"
       >

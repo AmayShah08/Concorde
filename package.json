@@ -21,10 +21,12 @@
     "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
     "leaflet": "^1.9.4",
+    "libphonenumber-js": "^1.12.41",
     "lucide-react": "^0.453.0",
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
     "react-leaflet": "^5.0.0",
+    "react-phone-number-input": "^3.4.16",
     "react-router-dom": "^6.30.0",
     "tailwind-merge": "2.5.4"
   },

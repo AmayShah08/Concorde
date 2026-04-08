@@ -19,7 +19,7 @@ export const FooterSection = (): JSX.Element => {
       text: (
         <span className="leading-relaxed">
           Safaris: +254 20 3743304 <br /> 
-          Car Hire: +254 700 987 654
+          Car Hire: +254 715 032 430
         </span>
       ) 
     },
@@ -28,7 +28,7 @@ export const FooterSection = (): JSX.Element => {
       title: "Email Us",
       text: (
         <span className="leading-relaxed">
-          safaris@concorde.co.ke <br /> 
+          safaris.travel@concorde.co.ke <br /> 
           carhire@concorde.co.ke
         </span>
       ) 
