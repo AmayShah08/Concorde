@@ -36,7 +36,7 @@ export const CarHireForm = (): JSX.Element => {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto">
       <form
         action="https://formsubmit.co/carhire@concorde.co.ke"
         method="POST"

@@ -31,7 +31,7 @@ export const FlightForm = (): JSX.Element => {
   return (
     <div className="w-full max-w-3xl mx-auto">
       <form
-        action="https://formsubmit.co/tours@concorde.co.ke"
+        action="https://formsubmit.co/travel@concorde.co.ke"
         method="POST"
         className="space-y-6 bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-gray-100 overflow-y-auto max-h-[85vh] custom-scrollbar"
       >
