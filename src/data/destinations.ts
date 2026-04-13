@@ -484,7 +484,7 @@ export const destinations: Destination[] = [
       {
         title: " Luxury in Nosy Be",
         description: "Relax in high-end oceanfront retreats with snorkeling, diving, and spa treatments. A tropical escape with turquoise waters and white sands.",
-        image:["/Exp/MD/md_nosybe_1.jpg","/Exp/MD/md_nosyb_2.jpg", "/Exp/MD/md_nosyb_3.jpg", "/Exp/MD/md_nosyb_4.jpg"]
+        image:["/Exp/MD/md_nosybe_1.jpg","/Exp/MD/md_nosybe_2.jpg", "/Exp/MD/md_nosybe_3.jpg", "/Exp/MD/md_nosybe_4.jpg"]
       },
       {
         title: "Whale Watching & Marine Safaris",
