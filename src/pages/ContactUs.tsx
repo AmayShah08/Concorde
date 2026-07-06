@@ -129,7 +129,7 @@ const ContactUs = (): JSX.Element => {
                             </div>
                             <div>
                                 <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Email Support</p>
-                                <p className="text-gray-800 underline">safaris@concorde.co.ke</p>
+                                <p className="text-gray-800 underline">safaris.travel@concorde.co.ke</p>
                                 <p className="text-gray-800 underline">tours@concorde.co.ke</p>
                             </div>
                         </div>

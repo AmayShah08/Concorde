@@ -142,5 +142,15 @@ export const destinations: Destination[] = [
     image: "Hotels/Giraffe-Manor.jpg",
     title: "Giraffe Manor - Kenya",
     description: "Giraffe Manor in Nairobi offers a one-of-a-kind experience where guests can dine and interact with endangered Rothschild giraffes in a stunning 1930s manor setting. It's one of Kenya’s most iconic boutique stays, blending wildlife conservation with old-world charm.",
-  },
+  },  {
+    id: 24,
+    image: "Hotels/Kibo-Amboseli.png",
+    title: "Kibo Safari Camp - Amboseli",
+    description: "An exclusive luxury villa set in the Amboseli ecosystem, offering personalized hospitality, private safari experiences, and breathtaking views of Mount Kilimanjaro.",
+  }, {
+    id: 25,
+    image: "Great-Plains.png",
+    title: "Great Plains Conservation - Africa",
+    description: "A collection of luxury safari camps across Africa's most iconic wildlife destinations, offering exceptional guiding, exclusive wildlife encounters, and conservation-focused luxury experiences.",
+  }
 ];
